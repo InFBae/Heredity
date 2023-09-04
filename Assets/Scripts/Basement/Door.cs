@@ -20,19 +20,18 @@ public class Door : MonoBehaviour, IOpenable
 	[SerializeField]
 	private float lockMaxAngle;
 
-	[SerializeField]
-	private Transform morgueBox;
-
-	private float originPosDistance;
+	private Vector3 originPosition;
+	private Quaternion originRotation;
 
 	private void Awake()
 	{
 		hinge = gameObject.GetComponent<HingeJoint>();
 		rb = gameObject.GetComponent<Rigidbody>();
 
-		Unlock();
+		originPosition = transform.position;
+		originRotation = transform.rotation;
 
-		originPosDistance = Vector3.Distance(morgueBox.position, transform.position);
+		Unlock();
 	}
 
 	public void Open()
@@ -62,13 +61,11 @@ public class Door : MonoBehaviour, IOpenable
 
 	public void CloseDoor(SelectExitEventArgs args)
 	{
-		if(Vector3.Distance(morgueBox.position, transform.position) <= originPosDistance)
-		{
-			Debug.Log("CloseDoor");
+		rb.velocity = Vector3.zero;
+		rb.angularVelocity = Vector3.zero;
 
-			rb.velocity = Vector3.zero;
-			rb.angularVelocity = Vector3.zero;
-		}
+		transform.position = originPosition;
+		transform.rotation = originRotation;
 	}
 
 }
