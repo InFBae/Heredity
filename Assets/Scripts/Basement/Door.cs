@@ -22,9 +22,9 @@ public class Door : MonoBehaviour, IOpenable
 	private void Awake()
 	{
 		hingeJoint = gameObject.GetComponent<HingeJoint>();
-	
 
-		Lock();
+
+		Unlock();
 	}
 
 	public void Open()
