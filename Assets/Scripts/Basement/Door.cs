@@ -6,6 +6,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class Door : MonoBehaviour, IOpenable
 {
 	private HingeJoint hingeJoint;
+	private Rigidbody rigidbody;
 
 	[SerializeField]
 	private float openMinAngle;
@@ -22,7 +23,7 @@ public class Door : MonoBehaviour, IOpenable
 	private void Awake()
 	{
 		hingeJoint = gameObject.GetComponent<HingeJoint>();
-
+		rigidbody = gameObject.GetComponent<Rigidbody>();
 
 		Unlock();
 	}
@@ -50,6 +51,11 @@ public class Door : MonoBehaviour, IOpenable
 		limits.min = minAngle;
 		limits.max = maxAngle;
 		hingeJoint.limits = limits;
+	}
+
+	public void CloseDoor()
+	{
+		rigidbody.angularVelocity = new Vector3(0, 0, 0);
 	}
 
 }
