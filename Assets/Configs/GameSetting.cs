@@ -7,7 +7,7 @@ public class GameSetting : MonoBehaviour
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     private static void Init()
     {
-       // InitGameManager();
+        InitGameManager();
     }
 
     private static void InitGameManager()
