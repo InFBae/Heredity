@@ -1,31 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class VisitRoomMission : MonoBehaviour
 {
-    [SerializeField] GameObject computerCanvas;
+    [SerializeField] TMP_Text monitorText;
 
-    [SerializeField] GameObject chair1;
-    [SerializeField] GameObject chair2;
-    [SerializeField] GameObject chair3;
-    [SerializeField] GameObject chair4;
+    private int socketSelectedCount = 0;
 
-    [SerializeField] GameObject socket1;
-    [SerializeField] GameObject socket2;
-    [SerializeField] GameObject socket3;
-    [SerializeField] GameObject socket4;
 
-    private bool isMissionClear = false;
+    [System.Serializable]
+    public class MissionCompleteEvent : UnityEvent { }
 
-    private void Update()
+    public MissionCompleteEvent missonCompleted;
+
+    public void OnMissionComplete()
     {
-        if (chair1.transform.position == socket1.transform.position &&
-            chair2.transform.position == socket2.transform.position &&
-            chair3.transform.position == socket3.transform.position &&
-            chair4.transform.position == socket4.transform.position)
+        monitorText.text = "3번 서랍에서 열쇠를 챙기세요";
+    }
+
+    public void SocketSelectEntered()
+    {
+        socketSelectedCount++;
+
+        if (socketSelectedCount == 4)
         {
-            isMissionClear = true;
+            missonCompleted?.Invoke();
         }
     }
+
+    public void SocketSelectExited()
+    {
+        socketSelectedCount--;
+    }
+
 }
