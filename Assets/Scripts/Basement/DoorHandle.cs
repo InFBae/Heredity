@@ -5,15 +5,11 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class DoorHandle : MonoBehaviour
 {
-	private XRGrabInteractable grabInteractable;
-
-	private Rigidbody rb;
-
-	[SerializeField]
-	private Door door;
+	protected XRGrabInteractable grabInteractable;
+	protected Rigidbody rb;
 
 	[SerializeField]
-	private Transform morgueBox;
+	private Transform doorFrame;
 
 	[SerializeField]
 	private float damperSize; 
@@ -23,25 +19,31 @@ public class DoorHandle : MonoBehaviour
 	private Vector3 originPosition;
 	private Quaternion originRotation;
 
-	private void Awake()
+	protected virtual void Awake()
 	{
 		grabInteractable = gameObject.GetComponent<XRGrabInteractable>();
 		rb = gameObject.GetComponent<Rigidbody>();
 
-		originPositionDistance = Vector3.Distance(morgueBox.position, transform.position) + damperSize;
+		originPositionDistance = Vector3.Distance(doorFrame.position, transform.position) + damperSize;
 		originPosition = transform.position;
 		originRotation = transform.rotation;
+
+		grabInteractable.selectExited.AddListener((args) => CloseDoor(args));
+
+		Debug.Log($"[Close - Current] Distance : {Vector3.Distance(doorFrame.position, transform.position)}");
+		Debug.Log($"[Close - Oring] Distance : {originPositionDistance}");
+
 	}
 
 	public void CloseDoor(SelectExitEventArgs args)
 	{
-		//Debug.Log($"[Close - Current] Distance : {Vector3.Distance(morgueBox.position, transform.position)}");
-		//Debug.Log($"[Close - Oring] Distance : {originPositionDistance}");
+		Debug.Log($"[Close - Current] Distance : {Vector3.Distance(doorFrame.position, transform.position)}");
+		Debug.Log($"[Close - Oring] Distance : {originPositionDistance}");
 
 		rb.velocity = Vector3.zero;
 		rb.angularVelocity = Vector3.zero;
 
-		if (Vector3.Distance(morgueBox.position, transform.position) <= originPositionDistance)
+		if (Vector3.Distance(doorFrame.position, transform.position) <= originPositionDistance)
 		{
 			transform.position = originPosition;
 			transform.rotation = originRotation;
