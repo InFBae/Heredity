@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class Door : MonoBehaviour, IOpenable
+public abstract class Door : MonoBehaviour, IOpenable
 {
-	private HingeJoint hinge;
-	private Rigidbody rb;
+	protected HingeJoint hinge;
+	protected Rigidbody rb;
 
 	[SerializeField]
 	private float openMinAngle;
@@ -20,32 +20,20 @@ public class Door : MonoBehaviour, IOpenable
 	[SerializeField]
 	private float lockMaxAngle;
 
-	[SerializeField]
-	private Transform morgueBox;
-
-	private float originPosDistance;
-
-	private void Awake()
+	protected virtual void Awake()
 	{
 		hinge = gameObject.GetComponent<HingeJoint>();
 		rb = gameObject.GetComponent<Rigidbody>();
-
-		Unlock();
-
-		originPosDistance = Vector3.Distance(morgueBox.position, transform.position);
 	}
 
-	public void Open()
-	{
-		
-	}
+	public abstract void Open();
 
-	public void Unlock()
+	public virtual void Unlock()
 	{
 		SetHingeAngle(openMinAngle, openMaxAngle);
 	}
 
-	public void Lock()
+	public virtual void Lock()
 	{
 		SetHingeAngle(lockMinAngle, lockMaxAngle);
 	}
@@ -59,16 +47,4 @@ public class Door : MonoBehaviour, IOpenable
 		limits.max = maxAngle;
 		hinge.limits = limits;
 	}
-
-	public void CloseDoor(SelectExitEventArgs args)
-	{
-		if(Vector3.Distance(morgueBox.position, transform.position) <= originPosDistance)
-		{
-			Debug.Log("CloseDoor");
-
-			rb.velocity = Vector3.zero;
-			rb.angularVelocity = Vector3.zero;
-		}
-	}
-
 }
