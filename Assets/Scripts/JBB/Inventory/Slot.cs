@@ -14,7 +14,7 @@ public class Slot : MonoBehaviour
     private void Start()
     {
         slotImage = GetComponentInChildren<Image>();
-        originalColor = slotImage.color;
+        originalColor = Color.white;
     }
 
     public void InsertItem(GameObject go)
