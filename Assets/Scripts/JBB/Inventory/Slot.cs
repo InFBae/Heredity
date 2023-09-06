@@ -17,29 +17,13 @@ public class Slot : MonoBehaviour
         originalColor = slotImage.color;
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        if (ItemInSlot != null) return;
-        GameObject go = other.gameObject;
-        if (!IsItem(go)) return;
-        if (!go.GetComponent<XRBaseInteractable>().isSelected)
-        {
-            if (!go.GetComponent<Item>().inSlot)
-                InsertItem(go);
-        }
-    }
-
-    private bool IsItem(GameObject go)
-    {
-        return go.GetComponent<Item>();
-    }
-
-    private void InsertItem(GameObject go)
+    public void InsertItem(GameObject go)
     {
         go.GetComponent<Rigidbody>().isKinematic = true;
         go.transform.SetParent(gameObject.transform, true);
         go.transform.localPosition = go.GetComponent<Item>().slotPosition;
         go.transform.localEulerAngles = go.GetComponent<Item>().slotRotation;
+        go.transform.localScale = go.GetComponent<Item>().slotScale;        
         go.GetComponent<Item>().inSlot = true;
         go.GetComponent<Item>().currentSlot = this;
         ItemInSlot = go;

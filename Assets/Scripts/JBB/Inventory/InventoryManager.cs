@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class Inventory : MonoBehaviour
+public class InventoryManager : MonoBehaviour
 {
     public GameObject inventory;
     public GameObject Anchor;
@@ -14,12 +14,12 @@ public class Inventory : MonoBehaviour
 
     private void OnEnable()
     {
-        rightHand.selectEntered.AddListener(OnSelectEntered);
+        //rightHand.selectEntered.AddListener(OnSelectEntered);
     }
 
     private void OnDisable()
     {
-        rightHand.selectEntered.RemoveListener(OnSelectEntered);
+        //rightHand.selectEntered.RemoveListener(OnSelectEntered);
     }
 
     private void Start()
@@ -63,7 +63,7 @@ public class Inventory : MonoBehaviour
         UIActive = false;
         inventory.SetActive(false);
     }
-
+    /*
     private void OnSelectEntered(SelectEnterEventArgs args)
     {
         XRBaseInteractable grabbed = args.interactableObject as XRBaseInteractable;
@@ -75,9 +75,10 @@ public class Inventory : MonoBehaviour
             go.GetComponent<Rigidbody>().isKinematic = false;
             go.GetComponent<Item>().currentSlot.ItemInSlot = null;
             go.transform.SetParent(null);
+            go.transform.localScale = go.GetComponent<Item>().originalScale;
             go.GetComponent<Item>().inSlot = false;
             go.GetComponent<Item>().currentSlot.ResetColor();
             go.GetComponent<Item>().currentSlot = null;
         }
-    }
+    }*/
 }
