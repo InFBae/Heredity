@@ -26,11 +26,4 @@ public class FlashLight : MonoBehaviour
             PasswordCanvas.transform.GetChild(0).gameObject.SetActive(false);
         }
     }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawRay(this.transform.position, this.transform.forward * maxDistance);
-    }
-
 }
