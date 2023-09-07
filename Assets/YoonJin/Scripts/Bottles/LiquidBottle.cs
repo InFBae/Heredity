@@ -3,24 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class LiquidBottle : XRBaseInteractable
+public class LiquidBottle : MonoBehaviour
 {
     public GameObject plugObj;  // 마개
     public ParticleSystem particleSystemLiquid;
     public ParticleSystem particleSystemSplash;
     public float fillAmount = 0.8f; // 초기 액체의 양
 
-    [SerializeField] MeshRenderer mesh;
+    [SerializeField] public MeshRenderer mesh;
     [SerializeField] GameObject SmashedObject;  // 깨지는 효과
 
     Rigidbody plugRb;   // 뚜껑의 리지드바디
-    MaterialPropertyBlock m_MaterialPropertyBlock;  // 셰이더의 속성 블록
+    public MaterialPropertyBlock m_MaterialPropertyBlock;  // 셰이더의 속성 블록
     Rigidbody bottleRb;   // 병의 리지드바디
+    [SerializeField] LiquidData liquidData;  // 병 안에 들어있는 액체의 정보
 
     private bool isPouring = false; // 현재 붓고있는지
-    private bool isPlugIn = true;   // 현재 뚜껑이 꽂혀있는지
+    public bool isPlugIn = true;   // 현재 뚜껑이 꽂혀있는지
     bool isBreakable;   // 깨질 수 있는지의 여부
     float startingFillAmount;   // 초기 액체의 양
+
+    [SerializeField] XRExclusiveSocketInteractor soInteractor;
+
+    [SerializeField] Color color;
 
     private void OnEnable()
     {
@@ -32,6 +37,8 @@ public class LiquidBottle : XRBaseInteractable
         // 액체 양을 셰이더에 전달하기 위한 MaterialPropertyBlock 생성
         m_MaterialPropertyBlock = new MaterialPropertyBlock();
         m_MaterialPropertyBlock.SetFloat("LiquidFill", fillAmount);
+        m_MaterialPropertyBlock.SetColor("_MainLiquid", color);
+        m_MaterialPropertyBlock.SetColor("_EdgeLiquid", color);
 
         // 매시랜더러의 속성 설정
         mesh.SetPropertyBlock(m_MaterialPropertyBlock);
@@ -66,6 +73,13 @@ public class LiquidBottle : XRBaseInteractable
 
             if (Physics.Raycast(particleSystemLiquid.transform.position, Vector3.down, out hit, 50.0f, ~0, QueryTriggerInteraction.Collide))
             {
+                EmptyBottle bottle = hit.collider.GetComponent<EmptyBottle>();
+
+                if (bottle != null)
+                {
+                    bottle.FillBottle(0.1f, mesh, m_MaterialPropertyBlock, liquidData);
+                }
+
                 // 들어가야 하는 병에 들어갔을 때
                 // LiquidReceiver receiver = hit.collider.GetComponent<LiquidReceiver>();
                 
@@ -81,6 +95,9 @@ public class LiquidBottle : XRBaseInteractable
         mesh.GetPropertyBlock(m_MaterialPropertyBlock);
         m_MaterialPropertyBlock.SetFloat("LiquidFill", fillAmount);
         mesh.SetPropertyBlock(m_MaterialPropertyBlock);
+
+        // 소켓 인터렉터가 선택됐을때(True일때) isPlugIn = true가 된다
+        isPlugIn = soInteractor.hasSelection;
     }
 
     // 포션 깨짐 여부 설정
@@ -90,18 +107,27 @@ public class LiquidBottle : XRBaseInteractable
     }
 
     // 뚜껑 제거 함수
-    public void PlugOff()
+    public void PlugSelectEntered(SelectEnterEventArgs args)
     {
-        if (isPlugIn)
+        if (args.interactorObject.transform.tag == "Player")
         {
-            isPlugIn = false;
-            plugRb.transform.SetParent(null);
-            plugRb.isKinematic = false;
-            plugRb.AddRelativeForce(new Vector3(0, 0, 120));
-
-            plugObj.transform.parent = null;
+            if (isPlugIn)
+            {
+                isPlugIn = false;
+                plugRb.isKinematic = false;
+                StartCoroutine(SocketReActive());
+            }
         }
+        
     }
+
+    IEnumerator SocketReActive()
+    {
+        soInteractor.socketActive = false;
+        yield return new WaitForSeconds(1f);
+        soInteractor.socketActive = true;
+    }
+  
 
     // 충돌과 병 깨짐 함수
     private void OnCollisionEnter(Collision collision)
