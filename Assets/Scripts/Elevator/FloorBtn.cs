@@ -9,7 +9,7 @@ namespace Elevator
 {
 	public class FloorBtn : ElevatorBtn
 	{
-		public UnityAction<int> OnSelectedFloor;
+		public UnityAction<FloorBtn> OnSelectedFloor;
 
 		protected override void Awake()
 		{
@@ -20,7 +20,7 @@ namespace Elevator
 
 		private void DoMoveFloor()
 		{
-			OnSelectedFloor?.Invoke(floorNumber);
+			OnSelectedFloor?.Invoke(this);
 		}
 	}
 }
