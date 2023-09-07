@@ -7,10 +7,12 @@ public class MachineRoomDoor : Door
 	protected override void Awake()
 	{
 		base.Awake();
+
+		Unlock();
 	}
 
 	public override void Open()
 	{
-		throw new System.NotImplementedException();
+		
 	}
 }
