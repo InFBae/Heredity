@@ -139,7 +139,7 @@ public class RotateInteractable : XRBaseInteractable
                 //even if we snap during rotation
                 newRight = Quaternion.AngleAxis(angle, worldRotationAxis) * m_StartingWorldAxis;
                 angle = Vector3.SignedAngle(worldAxisStart, newRight, worldRotationAxis);
-                Quaternion newRot = Quaternion.AngleAxis(angle, worldRotationAxis) * m_SyncTransform.rotation;
+                Quaternion newRot = Quaternion.AngleAxis(angle, worldRotationAxis) * m_SyncTransform.localRotation;
 
                 //then we redo it but this time using finalAngle, that will snap if needed.
                 newRight = Quaternion.AngleAxis(finalAngle, worldRotationAxis) * m_StartingWorldAxis;
@@ -147,16 +147,14 @@ public class RotateInteractable : XRBaseInteractable
                 OnDialAngleChanged.Invoke(finalAngle);
                 OnDialChanged.Invoke(this);
                 finalAngle = Vector3.SignedAngle(worldAxisStart, newRight, worldRotationAxis);
-                Quaternion newRBRotation = Quaternion.AngleAxis(finalAngle, worldRotationAxis) * m_SyncTransform.rotation;
+                Quaternion newRBRotation = Quaternion.AngleAxis(finalAngle, worldRotationAxis) * m_SyncTransform.localRotation;
 
-                if (RotatingRigidbody != null)
-                    RotatingRigidbody.MoveRotation(newRBRotation);
-                else
-                    transform.rotation = newRBRotation;
 
+                transform.localRotation = newRBRotation;
                 m_SyncTransform.transform.rotation = newRot;
 
                 m_GrabbedRotation = m_GrabbingInteractor.transform.rotation;
+                transform.localPosition = m_OriginalTransform.localPosition;
             }
         }
     }
@@ -171,16 +169,11 @@ public class RotateInteractable : XRBaseInteractable
         var syncObj = new GameObject("TEMP_DialSyncTransform");
         m_SyncTransform = syncObj.transform;
 
-        if (RotatingRigidbody != null)
-        {
-            m_SyncTransform.rotation = RotatingRigidbody.transform.rotation;
-            m_SyncTransform.position = RotatingRigidbody.position;
-        }
-        else
-        {
-            m_SyncTransform.rotation = transform.rotation;
-            m_SyncTransform.position = transform.position;
-        }
+
+
+        m_SyncTransform.localRotation = transform.localRotation;
+        m_SyncTransform.localPosition = transform.localPosition;
+        
 
         base.OnSelectEntered(args);
     }
@@ -213,17 +206,13 @@ public class RotateInteractable : XRBaseInteractable
 
             m_CurrentAngle = angle;
 
-            if (RotatingRigidbody != null)
-            {
-                Quaternion newRot = Quaternion.AngleAxis(angle, up) * RotatingRigidbody.rotation;
-                RotatingRigidbody.MoveRotation(newRot);
-            }
-            else
-            {
-                Quaternion newRot = Quaternion.AngleAxis(angle, up) * transform.rotation;
-                transform.rotation = newRot;
-            }
+
+            Quaternion newRot = Quaternion.AngleAxis(angle, up) * transform.localRotation;
+            transform.localRotation = newRot;
+
         }
+        transform.localPosition = m_OriginalTransform.localPosition;
+
 
         Destroy(m_SyncTransform.gameObject);
     }
