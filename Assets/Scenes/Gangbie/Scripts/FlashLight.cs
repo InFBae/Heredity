@@ -9,8 +9,23 @@ public class FlashLight : MonoBehaviour
     public float maxDistance;
 
     private GameObject PasswordCanvas;
-    private GameObject PrevPasswordCanvas;
 
+    [SerializeField] GameObject Light;
+
+    private void Awake()
+    {
+        this.enabled = false;
+    }
+
+    private void OnEnable()
+    {
+        Light.SetActive(true);
+    }
+
+    private void OnDisable()
+    {
+        Light.SetActive(false);
+    }
     private void Update()
     {
         RaycastHit hit;
