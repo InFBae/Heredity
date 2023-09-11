@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.XR.CoreUtils;
 using UnityEngine;
 
@@ -15,6 +16,8 @@ namespace Elevator
 
 		[SerializeField]
 		private XROrigin xrOrigin;
+
+		private FloorBtn currentBtn;
 
 		private ElevMoveDirection moveDirection;
 		private ElevatorMover mover;
@@ -36,16 +39,19 @@ namespace Elevator
 			xrOrigin.transform.rotation = enteredPoint.transform.rotation;
 		}
 
-		private void SelectedFloor(int arrival)
+		private void SelectedFloor(FloorBtn clickedBtn)
 		{
-			Debug.Log($"[SelectedFloor] : {arrival}");
+			currentBtn = clickedBtn;
 
 			mover.OnEndMovedElevator += ArrivalElevator;
-			mover.OnStartMovedElevator?.Invoke(moveDirection, arrival);
+			mover.OnStartMovedElevator?.Invoke(moveDirection, clickedBtn.FloorNum);
 		}
 
 		private void ArrivalElevator(int currentFloor)
 		{
+			currentBtn.SetInitBtn();
+			currentBtn = null;
+
 			mover.OnEndMovedElevator -= ArrivalElevator;
 			quitter.ExitedElevator(currentFloor, xrOrigin);
 		}

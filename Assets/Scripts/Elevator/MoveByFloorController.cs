@@ -25,10 +25,10 @@ namespace Elevator
 
 		private void Awake()
 		{
-			if(btnMoveUp != null)
+			if (btnMoveUp != null) 
 				btnMoveUp.OnClikcedButton += OnClikcedMoveButton;
 
-			if(btnMoveDwon != null)
+			if (btnMoveDwon != null) 
 				btnMoveDwon.OnClikcedButton += OnClikcedMoveButton;
 
 			isOneway = (btnMoveUp == null || btnMoveDwon == null);
@@ -39,6 +39,16 @@ namespace Elevator
 			Mover.OnMovingElevator += DoMovingElevator;
 		}
 
+		public void SetActiveElevator(bool isActive)
+		{
+			if (btnMoveUp != null) 
+				btnMoveUp.transform.gameObject.SetActive(isActive);
+
+			if (btnMoveDwon != null) 
+				btnMoveDwon.transform.gameObject.SetActive(isActive);
+
+			txtCurrentLocation.text = isActive ? Mover.CurrentFloor.ToString() : "";
+		}
 
 		private void OnClikcedMoveButton(ElevMoveDirection clikcedDir)
 		{
