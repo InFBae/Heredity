@@ -9,15 +9,17 @@ public class DoorHandle : MonoBehaviour
 	protected Rigidbody rb;
 
 	[SerializeField]
-	private Transform doorFrame;
+	protected Transform doorFrame;
 
 	[SerializeField]
-	private float damperSize; 
+	private float damperSize;
 
 	private float originPositionDistance;
 
-	private Vector3 originPosition;
-	private Quaternion originRotation;
+	protected Vector3 originPosition;
+	protected Quaternion originRotation;
+
+	protected bool isOpened;
 
 	protected virtual void Awake()
 	{
@@ -28,17 +30,19 @@ public class DoorHandle : MonoBehaviour
 		originPosition = transform.position;
 		originRotation = transform.rotation;
 
-		grabInteractable.selectExited.AddListener((args) => CloseDoor(args));
+		grabInteractable.selectExited.AddListener((args) => MovedDoor(args));
 
-		Debug.Log($"[Close - Current] Distance : {Vector3.Distance(doorFrame.position, transform.position)}");
-		Debug.Log($"[Close - Oring] Distance : {originPositionDistance}");
+		isOpened = false;
+
+		//Debug.Log($"[Close - Current] Distance : {Vector3.Distance(doorFrame.position, transform.position)}");
+		//Debug.Log($"[Close - Oring] Distance : {originPositionDistance}");
 
 	}
 
-	public void CloseDoor(SelectExitEventArgs args)
+	public void MovedDoor(SelectExitEventArgs args)
 	{
-		Debug.Log($"[Close - Current] Distance : {Vector3.Distance(doorFrame.position, transform.position)}");
-		Debug.Log($"[Close - Oring] Distance : {originPositionDistance}");
+		//Debug.Log($"[Close - Current] Distance : {Vector3.Distance(doorFrame.position, transform.position)}");
+		//Debug.Log($"[Close - Oring] Distance : {originPositionDistance}");
 
 		rb.velocity = Vector3.zero;
 		rb.angularVelocity = Vector3.zero;
@@ -47,6 +51,12 @@ public class DoorHandle : MonoBehaviour
 		{
 			transform.position = originPosition;
 			transform.rotation = originRotation;
+
+			isOpened = false;
+		}
+		else
+		{
+			isOpened = true;
 		}
 	}
 }
