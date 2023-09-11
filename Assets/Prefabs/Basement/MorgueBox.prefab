@@ -768,7 +768,6 @@ GameObject:
   - component: {fileID: 5642705437033687010}
   - component: {fileID: 1334815315020356503}
   - component: {fileID: 5559804579676433278}
-  - component: {fileID: 4839854040350748874}
   m_Layer: 11
   m_Name: MorgueBox_Door1
   m_TagString: Untagged
@@ -907,22 +906,6 @@ HingeJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &4839854040350748874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 795633221351182270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36bf45a786ff7624091d5e16dc7e40ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  openMinAngle: -100
-  openMaxAngle: 0
-  lockMinAngle: -5
-  lockMaxAngle: 0
 --- !u!1 &7626959129142550389
 GameObject:
   m_ObjectHideFlags: 0
@@ -1162,8 +1145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d781665d0981a304ab30ad2490ec4a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 4839854040350748874}
-  morgueBox: {fileID: 4184830658384070}
+  doorFrame: {fileID: 0}
   damperSize: 0.02
 --- !u!1 &7707602676417434645
 GameObject:
