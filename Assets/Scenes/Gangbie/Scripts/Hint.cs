@@ -7,7 +7,6 @@ public class Hint : Item, IUseable
 {
     [SerializeField] GameObject hintCanvas;
     [SerializeField] List<GameObject> hintColliders;
-    // [SerializeField] GameObject hintSocket;
 
     public LayerMask hintLayer;
 
@@ -27,15 +26,9 @@ public class Hint : Item, IUseable
 
     IEnumerator hintRoutine()
     {
-        
-        // int randNum = Random.Range(0, 5);
-
         hintCanvas.SetActive(true);
         yield return new WaitForSeconds(5);
         hintCanvas.SetActive(false);
-        // hintSocket.SetActive(false);
-        // this.transform.position = hintRandomPositions[randNum].transform.position;
-        // hintSocket.SetActive(true);
     }
 
     private void OnTriggerEnter(Collider other)
