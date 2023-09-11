@@ -14,7 +14,7 @@ namespace Elevator
 
 		public bool IsMoving { get; private set; } = false;
 
-		public int CurrentFloor { get; private set; } = 1;
+		public int CurrentFloor { get; private set; } = 2;
 
 		private void Awake()
 		{
