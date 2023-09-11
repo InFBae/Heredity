@@ -4351,6 +4351,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.9990558
       objectReference: {fileID: 0}
+    - target: {fileID: 5965733157175132885, guid: 882654f7e0e2ed54b9a654cae3c0383c, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6350159647772385172, guid: 882654f7e0e2ed54b9a654cae3c0383c, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.70723015
@@ -4366,6 +4370,14 @@ PrefabInstance:
     - target: {fileID: 6350159647772385172, guid: 882654f7e0e2ed54b9a654cae3c0383c, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6694755292031384741, guid: 882654f7e0e2ed54b9a654cae3c0383c, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6694755292806190025, guid: 882654f7e0e2ed54b9a654cae3c0383c, type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8544298035270691200, guid: 882654f7e0e2ed54b9a654cae3c0383c, type: 3}
       propertyPath: m_IsActive
@@ -4415,8 +4427,39 @@ PrefabInstance:
       propertyPath: fuseSocket
       value: 
       objectReference: {fileID: 5265360507899122926}
+    - target: {fileID: 8688582719162880952, guid: 882654f7e0e2ed54b9a654cae3c0383c, type: 3}
+      propertyPath: sparksParticles.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8688582719162880952, guid: 882654f7e0e2ed54b9a654cae3c0383c, type: 3}
+      propertyPath: sparksParticles.Array.data[0]
+      value: 
+      objectReference: {fileID: 903776155789692180}
+    - target: {fileID: 8688582719162880952, guid: 882654f7e0e2ed54b9a654cae3c0383c, type: 3}
+      propertyPath: sparksParticles.Array.data[1]
+      value: 
+      objectReference: {fileID: 191646412035060580}
+    - target: {fileID: 8688582719162880952, guid: 882654f7e0e2ed54b9a654cae3c0383c, type: 3}
+      propertyPath: sparksParticles.Array.data[2]
+      value: 
+      objectReference: {fileID: 191646410653867016}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 882654f7e0e2ed54b9a654cae3c0383c, type: 3}
+--- !u!198 &191646410653867016 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6694755292806190025, guid: 882654f7e0e2ed54b9a654cae3c0383c, type: 3}
+  m_PrefabInstance: {fileID: 6791517379187806145}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &191646412035060580 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6694755292031384741, guid: 882654f7e0e2ed54b9a654cae3c0383c, type: 3}
+  m_PrefabInstance: {fileID: 6791517379187806145}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &903776155789692180 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5965733157175132885, guid: 882654f7e0e2ed54b9a654cae3c0383c, type: 3}
+  m_PrefabInstance: {fileID: 6791517379187806145}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2797961187582319737 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8688582719162880952, guid: 882654f7e0e2ed54b9a654cae3c0383c, type: 3}
