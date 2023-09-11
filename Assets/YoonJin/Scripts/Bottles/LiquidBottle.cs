@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class LiquidBottle : MonoBehaviour
+public class LiquidBottle : RespawnableBottle
 {
+    [SerializeField] public string prefabName; // 병 프리팹
     public GameObject plugObj;  // 마개
     public ParticleSystem particleSystemLiquid;
     public ParticleSystem particleSystemSplash;
@@ -52,6 +53,11 @@ public class LiquidBottle : MonoBehaviour
 
         // 병을 깨질 수 있게설정
         isBreakable = true;
+    }
+
+    protected override void Start()
+    {
+        base.Start();
     }
 
     private void Update()
@@ -144,7 +150,7 @@ public class LiquidBottle : MonoBehaviour
                 if (plugObj.TryGetComponent(out c))
                     c.enabled = true;
 
-                Destroy(plugObj, 4.0f);
+                Destroy(plugObj.gameObject, 4.0f);
             }
 
             foreach (Transform child in transform)
@@ -169,8 +175,9 @@ public class LiquidBottle : MonoBehaviour
                 rb.AddExplosionForce(100.0f, SmashedObject.transform.position, 2.0f, 15.0F);
             }
 
-            Destroy(SmashedObject, 4.0f);
-            Destroy(this);
+            Destroy(SmashedObject.gameObject, 4.0f);
+            Destroy(this.gameObject, 4);
+            GameManager.Resource.Instantiate<GameObject>(GameManager.Resource.Load<GameObject>($"Interactables/Potions/{prefabName}"), startingPosition, startingRotation);            
         }
     }
 }

@@ -5287,7 +5287,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: daace3f9d5a4b82449e68870095108da, type: 2}
+  - {fileID: 2100000, guid: 88ba7694d6846854e8aea4ca7b294193, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5659,7 +5659,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cddb575c80629af428d847949713f31b, type: 2}
+  - {fileID: 2100000, guid: ffa919a7c66a61540a46f6186b24e886, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10690,7 +10690,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: daace3f9d5a4b82449e68870095108da, type: 2}
+  - {fileID: 2100000, guid: 88ba7694d6846854e8aea4ca7b294193, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12034,7 +12034,7 @@ GameObject:
   - component: {fileID: 7591464373096602032}
   - component: {fileID: 7591464373096602038}
   m_Layer: 0
-  m_Name: PurpleBottle
+  m_Name: YellowBottle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12048,7 +12048,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8965722692111021980}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.655747, y: 4.702428, z: -12.405355}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12104,12 +12104,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd7a5659a5405204d832d44459501d92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingPosition: {x: 0, y: 0, z: 0}
+  startingRotation: {x: 0, y: 0, z: 0, w: 0}
+  prefabName: YellowBottle
   plugObj: {fileID: 6693794165140611709}
   particleSystemLiquid: {fileID: 6279299718787397613}
   particleSystemSplash: {fileID: 8939540214586189419}
   fillAmount: 0.8
   mesh: {fileID: 3121834961337496448}
   SmashedObject: {fileID: 1762816981601116847}
+  liquidData: {fileID: 0}
+  isPlugIn: 1
   soInteractor: {fileID: 5951787639591242982}
   color: {r: 0.5254902, g: 0, b: 1, a: 0}
 --- !u!114 &7591464373096602032

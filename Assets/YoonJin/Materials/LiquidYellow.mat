@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LiquidPurple
+  m_Name: LiquidYellow
   m_Shader: {fileID: -6465566751694194690, guid: 292dba6cb50f7954c95476c600454adf, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -56,6 +56,6 @@ Material:
     m_Colors:
     - Color_E3091B1A: {r: 0.52594274, g: 0, b: 1, a: 0}
     - Color_FDA61C50: {r: 0.475418, g: 0.1715023, b: 0.7735849, a: 0}
-    - _EdgeLiquid: {r: 0.50433147, g: 0, b: 0.8018868, a: 0}
-    - _MainLiquid: {r: 0.52594274, g: 0, b: 1, a: 0}
+    - _EdgeLiquid: {r: 0.8666667, g: 0.7939067, b: 0, a: 0}
+    - _MainLiquid: {r: 1, g: 1, b: 0.227451, a: 1}
   m_BuildTextureStacks: []
