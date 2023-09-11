@@ -185,7 +185,6 @@ public class Zombie : MonoBehaviour
         }
         public override void Enter()
         {
-            owner.curStateNum = 3;
             time = 0;
             owner.agent.speed = owner.runSpeed;
             traceRoutine = owner.StartCoroutine(TraceRoutine());

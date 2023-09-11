@@ -1,0 +1,54 @@
+{
+    "name": "MyKeys",
+    "maps": [
+        {
+            "name": "LeftControllerKey",
+            "id": "106f5e1b-67f1-4c49-a947-8f8973f2a4f3",
+            "actions": [
+                {
+                    "name": "Grab",
+                    "type": "PassThrough",
+                    "id": "f6e03913-ff1a-4e94-b39b-c659828b92ee",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PrimaryButton",
+                    "type": "PassThrough",
+                    "id": "05705ba5-ab04-422d-afdd-01c582f5a7db",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "2047cfca-b73a-4a83-9bfb-7b7323f556aa",
+                    "path": "<XRController>{LeftHand}/gripPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Grab",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "eb092e13-3d21-4127-8f0d-9ebd9f7baf87",
+                    "path": "<XRController>{LeftHand}/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PrimaryButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
