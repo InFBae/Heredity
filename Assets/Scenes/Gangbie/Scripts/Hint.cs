@@ -8,6 +8,8 @@ public class Hint : Item, IUseable
     [SerializeField] List<GameObject> hintRandomPositions;
     [SerializeField] GameObject hintSocket;
 
+    private int hintCount = 5;
+
     public void Use()
     {
         StartCoroutine(hintRoutine());
