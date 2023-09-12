@@ -12051,7 +12051,7 @@ Transform:
   m_GameObject: {fileID: 8965722692111021980}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4.934596, y: 4.934596, z: 4.934596}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 148924781410426573}
@@ -12106,7 +12106,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd7a5659a5405204d832d44459501d92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: EmptyBottle
+  startingPosition: {x: 0, y: 0, z: 0}
+  startingRotation: {x: 0, y: 0, z: 0, w: 0}
+  prefabName: 
   plugObj: {fileID: 6693794165140611709}
   particleSystemLiquid: {fileID: 6279299718787397613}
   particleSystemSplash: {fileID: 8939540214586189419}
