@@ -4103,6 +4103,10 @@ PrefabInstance:
       propertyPath: m_SmoothRotation
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2275314697775509792, guid: df18b5f5efc79ab4885fd0cccc739c01, type: 3}
+      propertyPath: m_InteractionLayers.m_Bits
+      value: 536870912
+      objectReference: {fileID: 0}
     - target: {fileID: 3030152227296088729, guid: df18b5f5efc79ab4885fd0cccc739c01, type: 3}
       propertyPath: m_Name
       value: Fuse
@@ -4172,6 +4176,10 @@ PrefabInstance:
     - target: {fileID: 2275314697775509792, guid: df18b5f5efc79ab4885fd0cccc739c01, type: 3}
       propertyPath: m_SmoothRotation
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2275314697775509792, guid: df18b5f5efc79ab4885fd0cccc739c01, type: 3}
+      propertyPath: m_InteractionLayers.m_Bits
+      value: 536870912
       objectReference: {fileID: 0}
     - target: {fileID: 3030152227296088729, guid: df18b5f5efc79ab4885fd0cccc739c01, type: 3}
       propertyPath: m_Name
@@ -4262,6 +4270,10 @@ PrefabInstance:
     - target: {fileID: 1434131664675528723, guid: 882654f7e0e2ed54b9a654cae3c0383c, type: 3}
       propertyPath: maxAngle
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1434131664675528723, guid: 882654f7e0e2ed54b9a654cae3c0383c, type: 3}
+      propertyPath: m_InteractionLayers.m_Bits
+      value: 536870912
       objectReference: {fileID: 0}
     - target: {fileID: 1680406087029955375, guid: 882654f7e0e2ed54b9a654cae3c0383c, type: 3}
       propertyPath: m_InteractableHoverMeshMaterial
