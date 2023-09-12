@@ -14,7 +14,7 @@ public class BasicDoor : Door
     {
         if (hinge.angle <= hinge.limits.min + 1)
         {
-            Debug.Log("Door Locked");
+            //Debug.Log("Door Locked");
             Lock();
         }
     }
