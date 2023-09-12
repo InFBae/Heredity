@@ -790,6 +790,10 @@ PrefabInstance:
       value: 536870912
       objectReference: {fileID: 0}
     - target: {fileID: 7655819919251999228, guid: 753dedb8839ca714c8112594bb42750b, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7655819919251999228, guid: 753dedb8839ca714c8112594bb42750b, type: 3}
       propertyPath: m_Size.z
       value: 0.05
       objectReference: {fileID: 0}
@@ -840,6 +844,10 @@ PrefabInstance:
     - target: {fileID: 7655819919251999229, guid: 753dedb8839ca714c8112594bb42750b, type: 3}
       propertyPath: m_ConnectedAnchor.z
       value: -3.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7655819919251999229, guid: 753dedb8839ca714c8112594bb42750b, type: 3}
+      propertyPath: m_Limits.bounceMinVelocity
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7655819919251999229, guid: 753dedb8839ca714c8112594bb42750b, type: 3}
       propertyPath: m_AutoConfigureConnectedAnchor
@@ -909,7 +917,7 @@ MonoBehaviour:
   openMinAngle: 0
   openMaxAngle: 120
   lockMinAngle: 0
-  lockMaxAngle: 5
+  lockMaxAngle: 1
 --- !u!4 &921431367766537336 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7698522702232832222, guid: 753dedb8839ca714c8112594bb42750b, type: 3}
