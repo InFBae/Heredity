@@ -19,7 +19,7 @@ public class Slot : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (ItemInSlot != null && other.GetComponent<Item>())
+        if (ItemInSlot == null && other.GetComponent<Item>())
         {
             other.gameObject.GetComponent<Item>().onSlot.AddListener(InsertItem);
         }
@@ -27,7 +27,7 @@ public class Slot : MonoBehaviour
 
     public void OnTriggerExit(Collider other)
     {
-        if (ItemInSlot != null && other.GetComponent<Item>())
+        if (ItemInSlot == null && other.GetComponent<Item>())
         {
             other.gameObject.GetComponent<Item>().onSlot.RemoveListener(InsertItem);
         }
@@ -36,15 +36,18 @@ public class Slot : MonoBehaviour
 
     public void InsertItem(GameObject go)
     {
-        go.GetComponent<Rigidbody>().isKinematic = true;
-        go.transform.SetParent(gameObject.transform, true);
-        go.transform.localPosition = go.GetComponent<Item>().slotPosition;
-        go.transform.localEulerAngles = go.GetComponent<Item>().slotRotation;
-        go.transform.localScale = go.GetComponent<Item>().slotScale;        
-        go.GetComponent<Item>().inSlot = true;
-        go.GetComponent<Item>().currentSlot = this;
-        ItemInSlot = go;
-        slotImage.color = Color.gray;
+        if (!go.GetComponent<Item>().inSlot)
+        {
+            go.GetComponent<Rigidbody>().isKinematic = true;
+            go.transform.SetParent(gameObject.transform, true);
+            go.transform.localPosition = go.GetComponent<Item>().slotPosition;
+            go.transform.localEulerAngles = go.GetComponent<Item>().slotRotation;
+            go.transform.localScale = go.GetComponent<Item>().slotScale;
+            go.GetComponent<Item>().inSlot = true;
+            go.GetComponent<Item>().currentSlot = this;
+            ItemInSlot = go;
+            slotImage.color = Color.gray;
+        }       
     }
 
     public void ResetColor()
