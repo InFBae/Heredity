@@ -19,6 +19,12 @@ public class VisitRoomMission : MonoBehaviour
 
     public MissionCompleteEvent missonCompleted;
 
+    private void Awake()
+    {
+        drawer1.Lock();
+        drawer3.Lock();
+    }
+
     public void OnMissionComplete()
     {
         monitorText.text = "뒤의 철제 사물함 서랍에서 열쇠를 챙기세요";
