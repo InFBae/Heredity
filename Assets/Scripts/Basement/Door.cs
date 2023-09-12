@@ -9,16 +9,16 @@ public abstract class Door : MonoBehaviour, IOpenable
 	protected Rigidbody rb;
 
 	[SerializeField]
-	private float openMinAngle;
+	protected float openMinAngle;
 
 	[SerializeField]
-	private float openMaxAngle;
+    protected float openMaxAngle;
 
 	[SerializeField]
-	private float lockMinAngle;
+    protected float lockMinAngle;
 
 	[SerializeField]
-	private float lockMaxAngle;
+    protected float lockMaxAngle;
 
 	protected virtual void Awake()
 	{
@@ -38,7 +38,7 @@ public abstract class Door : MonoBehaviour, IOpenable
 		SetHingeAngle(lockMinAngle, lockMaxAngle);
 	}
 
-	private void SetHingeAngle(float minAngle, float maxAngle)
+	protected void SetHingeAngle(float minAngle, float maxAngle)
 	{
 		hinge.useLimits = true;
 
