@@ -17,6 +17,23 @@ public class Slot : MonoBehaviour
         originalColor = Color.white;
     }
 
+    public void OnTriggerEnter(Collider other)
+    {
+        if (ItemInSlot != null && other.GetComponent<Item>())
+        {
+            other.gameObject.GetComponent<Item>().onSlot.AddListener(InsertItem);
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if (ItemInSlot != null && other.GetComponent<Item>())
+        {
+            other.gameObject.GetComponent<Item>().onSlot.RemoveListener(InsertItem);
+        }
+    }
+
+
     public void InsertItem(GameObject go)
     {
         go.GetComponent<Rigidbody>().isKinematic = true;
