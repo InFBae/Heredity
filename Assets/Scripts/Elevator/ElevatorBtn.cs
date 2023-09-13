@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 namespace Elevator
 { 
@@ -20,19 +21,17 @@ namespace Elevator
 		protected int floorNumber;
 		public int FloorNum { get { return floorNumber; } }
 
+		[SerializeField]
+		private LayerMask PlayerLayer;
 
-        protected CircleCollider2D btnCollider;
-		//public Button BtnElevator { get; private set; }
-
+		protected CircleCollider2D btnCollider;
+		
 		public UnityAction OnElevatorBtnClick;
 
 		protected bool isActiveBtn = true;
 
-        protected virtual void Awake()
+		protected virtual void Awake()
 		{
-			//BtnElevator = gameObject.GetComponent<Button>();
-			//BtnElevator.onClick.AddListener(SetClickedBtn);
-
 			OnElevatorBtnClick += SetClickedBtn;
 
             btnCollider = gameObject.GetComponent<CircleCollider2D>();
@@ -52,13 +51,16 @@ namespace Elevator
 			btnInfoText.color = Color.white;
 		}
 
-        public void OnTriggerEnter(Collider other)
-        {
-            if (isActiveBtn)
-                OnElevatorBtnClick?.Invoke();
-        }
+		public void OnTriggerEnter(Collider other)
+		{
+			if (((1 << other.gameObject.layer) & PlayerLayer) != 0)
+			{
+				if (isActiveBtn)
+					OnElevatorBtnClick?.Invoke();
+			}
+		}
 
-        public void SetActiveBtn(bool isActive)
+		public void SetActiveBtn(bool isActive)
 		{
 			isActiveBtn = isActive;
         }

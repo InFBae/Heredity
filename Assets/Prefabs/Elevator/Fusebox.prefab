@@ -78,10 +78,34 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8688582719162880952}
+        m_TargetAssemblyTypeName: Basement.MachineRoom.FuseBox, Assembly-CSharp
+        m_MethodName: PutFuse
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8688582719162880952}
+        m_TargetAssemblyTypeName: Basement.MachineRoom.FuseBox, Assembly-CSharp
+        m_MethodName: RemoveFuse
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_OnHoverEntered:
@@ -97,7 +121,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_ShowInteractableHoverMeshes: 1
-  m_InteractableHoverMeshMaterial: {fileID: 0}
+  m_InteractableHoverMeshMaterial: {fileID: 2100000, guid: 88d71507213347c468b1728ce5f77dd7, type: 2}
   m_InteractableCantHoverMeshMaterial: {fileID: 0}
   m_SocketActive: 1
   m_InteractableHoverScale: 1
@@ -162,7 +186,7 @@ Transform:
   m_GameObject: {fileID: 3879379326887835974}
   m_LocalRotation: {x: 0.14113718, y: 0.69275236, z: -0.6929941, w: 0.14118645}
   m_LocalPosition: {x: -2.597, y: 1.288, z: 0.419}
-  m_LocalScale: {x: 1.2, y: 1.1999998, z: 1.1999998}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3259365991842975542}
@@ -186,9 +210,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fuseLever: {fileID: 1434131664675528723}
-  fuseSocket: {fileID: 0}
+  fuseSocket: {fileID: 1680406087029955375}
   elevator: {fileID: 0}
-  sparksParticles: []
+  sparksParticles:
+  - {fileID: 5965733157175132885}
+  - {fileID: 6694755292031384741}
+  - {fileID: 6694755292806190025}
 --- !u!1 &3924908023366650603
 GameObject:
   m_ObjectHideFlags: 0
@@ -602,6 +629,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33099651b8c66144aa2f4364d3c49ffb, type: 3}
+--- !u!198 &6694755292806190025 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1882279864396421120, guid: 33099651b8c66144aa2f4364d3c49ffb, type: 3}
+  m_PrefabInstance: {fileID: 5113766903727852489}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7146120577361801061 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2727951201451336876, guid: 33099651b8c66144aa2f4364d3c49ffb, type: 3}
@@ -664,6 +696,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33099651b8c66144aa2f4364d3c49ffb, type: 3}
+--- !u!198 &6694755292031384741 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1882279864396421120, guid: 33099651b8c66144aa2f4364d3c49ffb, type: 3}
+  m_PrefabInstance: {fileID: 5113766904561558693}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7146120578667184137 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2727951201451336876, guid: 33099651b8c66144aa2f4364d3c49ffb, type: 3}
@@ -726,6 +763,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33099651b8c66144aa2f4364d3c49ffb, type: 3}
+--- !u!198 &5965733157175132885 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1882279864396421120, guid: 33099651b8c66144aa2f4364d3c49ffb, type: 3}
+  m_PrefabInstance: {fileID: 5248304498715761365}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7858244824864063097 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2727951201451336876, guid: 33099651b8c66144aa2f4364d3c49ffb, type: 3}

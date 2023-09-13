@@ -18,7 +18,6 @@ namespace Elevator
 		{
 			base.Awake();
 
-			//BtnElevator.onClick.AddListener(NotifyClickedBtn);
 			OnElevatorBtnClick += NotifyClickedBtn;
         }
 

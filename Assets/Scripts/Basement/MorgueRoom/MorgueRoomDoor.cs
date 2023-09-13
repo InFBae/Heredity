@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Basement.MachineRoom
+namespace Basement.MorgueRoom
 {
 	public class MorgueRoomDoor : Door
 	{
