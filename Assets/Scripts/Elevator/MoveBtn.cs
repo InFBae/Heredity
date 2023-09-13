@@ -18,14 +18,13 @@ namespace Elevator
 		{
 			base.Awake();
 
-			BtnElevator.onClick.AddListener(NotifyClickedBtn);
-		}
+			OnElevatorBtnClick += NotifyClickedBtn;
+        }
 
 		private void NotifyClickedBtn()
 		{
 			OnClikcedButton?.Invoke(elevatorDirection);
 		}
-	
-	}
+    }
 
 }
