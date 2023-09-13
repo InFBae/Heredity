@@ -41,11 +41,17 @@ namespace Elevator
 
 		public void SetActiveElevator(bool isActive)
 		{
-			if (btnMoveUp != null) 
-				btnMoveUp.transform.gameObject.SetActive(isActive);
+			if (btnMoveUp != null)
+			{
+                btnMoveUp.transform.gameObject.SetActive(isActive);
+				btnMoveUp.SetActiveBtn(isActive);
+            }
 
-			if (btnMoveDwon != null) 
-				btnMoveDwon.transform.gameObject.SetActive(isActive);
+			if (btnMoveDwon != null)
+			{
+                btnMoveDwon.transform.gameObject.SetActive(isActive);
+                btnMoveDwon.SetActiveBtn(isActive);
+            }
 
 			txtCurrentLocation.text = isActive ? Mover.CurrentFloor.ToString() : "";
 		}
@@ -73,7 +79,7 @@ namespace Elevator
 		private void SetMoveBtnActive(MoveBtn otherBtn)
 		{
 			if (isOneway == false)
-				otherBtn.BtnElevator.gameObject.SetActive(!btnCurrentActive.IsEnableBtn);
+				otherBtn.SetActiveBtn(!btnCurrentActive.IsEnableBtn);
 		}
 
 		private void DoMovingElevator(ElevMoveDirection direction, int currentPos)

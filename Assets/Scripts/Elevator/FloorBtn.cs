@@ -15,8 +15,8 @@ namespace Elevator
 		{
 			base.Awake();
 
-			BtnElevator.onClick.AddListener(DoMoveFloor);
-		}
+            OnElevatorBtnClick += DoMoveFloor;
+        }
 
 		private void DoMoveFloor()
 		{

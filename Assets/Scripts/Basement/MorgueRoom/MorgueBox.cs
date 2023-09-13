@@ -6,6 +6,7 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 
 namespace Basement.MorgueRoom
 {
@@ -31,6 +32,12 @@ namespace Basement.MorgueRoom
 			IsCorrected = !(answers.Any(x => x.IsOpenDoor != x.Door.IsOpened));
 
 			OnChangedStatus?.Invoke();
+		}
+
+		public void FinishedOpenDoor()
+		{
+			foreach (var info in answers)
+				info.Door.SetDisableOpenable();
 		}
 	}
 }
