@@ -12354,6 +12354,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4214d60046c6cad4396f4c643790efba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  successLiquid: {fileID: 11400000, guid: 733a6e703d4736d4b9fa1d99d78e0ccd, type: 2}
+  failureLiquid: {fileID: 11400000, guid: 07938cf12b92f7441b64cf768219f32c, type: 2}
   recipes:
   - {fileID: 11400000, guid: a1c53de8e5c32034b8ee8ac78b36a885, type: 2}
 --- !u!65 &260971903
