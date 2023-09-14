@@ -499,10 +499,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Map
       objectReference: {fileID: 0}
-    - target: {fileID: 921431367766537335, guid: 753dedb8839ca714c8112594bb42750b, type: 3}
-      propertyPath: m_InteractionManager
-      value: 
-      objectReference: {fileID: 1659432284}
     - target: {fileID: 1177574413822457312, guid: 753dedb8839ca714c8112594bb42750b, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -627,14 +623,6 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 1659432284}
-    - target: {fileID: 8295854567008232114, guid: 753dedb8839ca714c8112594bb42750b, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8296632831730854870, guid: 753dedb8839ca714c8112594bb42750b, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8794280788861125547, guid: 753dedb8839ca714c8112594bb42750b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
