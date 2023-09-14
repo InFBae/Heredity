@@ -10,7 +10,7 @@ namespace Basement.MorgueRoom
 		{
 			base.Awake();
 
-			Unlock();
+			Lock();
 		}
 
 		public override void Open()

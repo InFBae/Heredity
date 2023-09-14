@@ -1425,8 +1425,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.085124694, y: 0.075011015, z: 0.03748033}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.085124694, y: 0.029656064, z: 0.03748033}
+  m_Center: {x: 0.0000000027033666, y: 0.022677483, z: -0.0000000027033664}
 --- !u!114 &4146794325379755164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1483,7 +1483,7 @@ MonoBehaviour:
   m_InteractableHoverScale: 1
   m_RecycleDelayTime: 1
   door: {fileID: 4403321149048294505}
-  delayTime: 5
+  delayTime: 3
 --- !u!1 &4146794325513034249
 GameObject:
   m_ObjectHideFlags: 0
@@ -4587,7 +4587,7 @@ HingeJoint:
   m_ConnectedBody: {fileID: 0}
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0, z: 0}
-  m_Axis: {x: 0, y: -1, z: 0}
+  m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0, y: 0, z: 0}
   m_UseSpring: 0
@@ -4602,10 +4602,10 @@ HingeJoint:
     freeSpin: 0
   m_UseLimits: 1
   m_Limits:
-    min: 0
-    max: 180
-    bounciness: 1
-    bounceMinVelocity: 100
+    min: -180
+    max: -80
+    bounciness: 0
+    bounceMinVelocity: 0
     contactDistance: 0
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
@@ -4625,8 +4625,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 614db3cdace01b142b37a7672dd982b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openMinAngle: 0
-  openMaxAngle: 180
+  openMinAngle: -180
+  openMaxAngle: 0
   lockMinAngle: 0
   lockMaxAngle: 0
 --- !u!1 &4466435526492654004
