@@ -38,6 +38,8 @@ public class FlashLight : MonoBehaviour
         }
         else
         {
+            if (PasswordCanvas == null)
+                return;
             PasswordCanvas.transform.GetChild(0).gameObject.SetActive(false);
         }
     }
