@@ -21,7 +21,9 @@ namespace Elevator
 		private void Awake()
 		{
 			InitComponents();
-		}
+
+			StopElevator();
+        }
 
 		private void InitComponents()
 		{

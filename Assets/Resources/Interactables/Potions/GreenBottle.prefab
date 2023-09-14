@@ -12112,7 +12112,7 @@ MonoBehaviour:
   fillAmount: 0.8
   mesh: {fileID: 3121834961337496448}
   SmashedObject: {fileID: 1762816981601116847}
-  liquidData: {fileID: 0}
+  liquidData: {fileID: 11400000, guid: 9f947df86e1c9e447ba97832f46d805b, type: 2}
   isPlugIn: 1
   soInteractor: {fileID: 5951787639591242982}
   color: {r: 0.54901963, g: 0.9294118, b: 0.24705884, a: 0}

@@ -18,6 +18,9 @@ namespace Basement.MachineRoom
 		[SerializeField]
 		private ElevatorController elevator;
 
+		[SerializeField]
+		private ParticleSystem[] sparksParticles;
+
 		private void Awake()
 		{
 			fuseLever.LockLever();
@@ -26,6 +29,9 @@ namespace Basement.MachineRoom
 
 		public void PutFuse(SelectEnterEventArgs args)
 		{
+			foreach (var particle in sparksParticles)
+				particle.Play();
+
 			fuseLever.UnLockLever();
 		}
 

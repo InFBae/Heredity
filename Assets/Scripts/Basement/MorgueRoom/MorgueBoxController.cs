@@ -33,6 +33,9 @@ public class MorgueBoxController : MonoBehaviour
 
 	private void CompleteRoom()
 	{
+		foreach (var box in morgueBoxes)
+			box.FinishedOpenDoor();
+
 		imgKeyPostionHint.gameObject.SetActive(true);
 	}
 }

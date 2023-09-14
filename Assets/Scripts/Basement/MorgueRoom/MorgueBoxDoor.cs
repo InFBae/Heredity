@@ -37,5 +37,10 @@ namespace Basement.MorgueRoom
 			IsOpened = isOpened;
 			OnChangedDoorState?.Invoke();
 		}
+
+		public void SetDisableOpenable()
+		{
+			rb.isKinematic = true;
+		}
 	}
 }

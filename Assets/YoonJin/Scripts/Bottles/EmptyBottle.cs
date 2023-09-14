@@ -54,18 +54,19 @@ public class EmptyBottle : MonoBehaviour
             {
                 inLiquidBottle.Add(liquidData); // 리스트에 해당 액체 데이터를 추가
                 Debug.Log(liquidData + "를 넣음");
-
-                if (CheckBottleMix(out RecipeData recipeData))
-                {
-                    Debug.Log(recipeData.recipeName + "is Success Making");
-                }
             }
         }
     }
 
-    private bool CheckBottleMix(out RecipeData recipeData)
+    public bool CheckBottleMix(out RecipeData recipeData)
     {
         recipeData = null;
+        LiquidBottle liquidBottle = GetComponent<LiquidBottle>();
+        MaterialPropertyBlock mpb = liquidBottle.m_MaterialPropertyBlock;
+
+        // 원본 마테리얼속성블록을 가져오고, 수정해야 함
+        Color mainLiquidColor = mpb.GetColor("_MainLiquid");
+        Color edgeLiquidColor = mpb.GetColor("_EdgeLiquid");
 
         // 레시피 데이터 리스트를 순회하며 검사
         foreach (RecipeData recipe in recipes)
@@ -85,9 +86,51 @@ public class EmptyBottle : MonoBehaviour
             {
                 recipeData = recipe;
                 // 액체 데이터가 일치하는 레시피를 찾았을 때, 해당 레시피 반환
+
+                if (liquidBottle != null) 
+                {
+                    // 액체 데이터를 사용하여 mpb색상값 설정
+                    mainLiquidColor = Color.white;
+                    edgeLiquidColor = Color.white;
+
+                    mpb.SetColor("_MainLiquid", Color.white);
+                    mpb.SetColor("_EdgeLiquid", Color.white);
+                    Debug.Log("성공!");
+                }
+                else
+                {
+                    mainLiquidColor = Color.black;
+                    edgeLiquidColor = Color.black;
+
+                    // 실패할 때 검은색 설정
+                    mpb.SetColor("_MainLiquid", Color.black);
+                    mpb.SetColor("_EdgeLiquid", Color.black);
+                    Debug.Log("실패!");
+                }
+
+                // 수정된 색상을 MaterialPropertyBlock에 설정
+                mpb.SetColor("_MainLiquid", mainLiquidColor);
+                mpb.SetColor("_EdgeLiquid", edgeLiquidColor);
+
+                // 렌더러에 MaterialPropertyBlock 설정 적용
+                liquidBottle.mesh.SetPropertyBlock(mpb);
+
                 return true;
             }
         }
+        Debug.Log("실패!");
+
+        // 수정된 색상을 MaterialPropertyBlock에 설정
+        mpb.SetColor("_MainLiquid", mainLiquidColor);
+        mpb.SetColor("_EdgeLiquid", edgeLiquidColor);
+
+        // 실패할 때 검은색 설정
+        mpb.SetColor("_MainLiquid", Color.black);
+        mpb.SetColor("_EdgeLiquid", Color.black);
+
+        // 렌더러에 MaterialPropertyBlock 설정 적용
+        liquidBottle.mesh.SetPropertyBlock(mpb);
+
         return false;   // 일치하는 레시피를 찾지 못한 경우
     }
 }
