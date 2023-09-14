@@ -8064,6 +8064,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4146794325119499852}
     m_Modifications:
+    - target: {fileID: 1834052836012994244, guid: df18b5f5efc79ab4885fd0cccc739c01, type: 3}
+      propertyPath: IsConnectable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2041848882740158602, guid: df18b5f5efc79ab4885fd0cccc739c01, type: 3}
       propertyPath: m_RootOrder
       value: 0
