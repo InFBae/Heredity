@@ -10,7 +10,7 @@ namespace Basement.MachineRoom
 		{
 			base.Awake();
 
-			Unlock();
+			Lock();
 		}
 
 		public override void Open()
