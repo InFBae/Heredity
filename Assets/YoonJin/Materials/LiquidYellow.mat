@@ -54,8 +54,8 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - Color_E3091B1A: {r: 0.52594274, g: 0, b: 1, a: 0}
-    - Color_FDA61C50: {r: 0.475418, g: 0.1715023, b: 0.7735849, a: 0}
+    - Color_E3091B1A: {r: 0.9995656, g: 1, b: 0, a: 0}
+    - Color_FDA61C50: {r: 0.7439657, g: 0.77254903, b: 0.172549, a: 0}
     - _EdgeLiquid: {r: 0.8666667, g: 0.7939067, b: 0, a: 0}
     - _MainLiquid: {r: 1, g: 1, b: 0.227451, a: 1}
   m_BuildTextureStacks: []
