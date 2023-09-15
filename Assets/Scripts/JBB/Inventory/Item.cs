@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class Item : XRGrabInteractable
@@ -12,8 +13,7 @@ public class Item : XRGrabInteractable
     public Vector3 originalScale = Vector3.one;
     public Slot currentSlot;
 
-    private bool isOnSlot;
-    private Slot onSlot;
+    public UnityEvent<GameObject> onSlot = new UnityEvent<GameObject>();
 
     protected override void OnSelectEntering(SelectEnterEventArgs args)
     {
@@ -35,23 +35,7 @@ public class Item : XRGrabInteractable
     {
         base.OnSelectExited(args);
 
-        if (!inSlot && isOnSlot && onSlot.ItemInSlot == null)
-        {
-            onSlot.InsertItem(gameObject);
-        }
-    }
-
-    public void OnTriggerStay(Collider other)
-    {
-        onSlot = other.GetComponent<Slot>();
-        if (onSlot != null)
-        {
-            isOnSlot = true;
-        }
-        else
-        {
-            isOnSlot = false;
-        }
+        onSlot?.Invoke(this.gameObject);
     }
 
 }
