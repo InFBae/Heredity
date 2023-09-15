@@ -6,6 +6,7 @@ public class NumberPadlockRuller : MonoBehaviour
 {
     private GameObject _myRuller;
     public float blinkingTime = 0.5f;
+    public int num;
 
     private void Start()
     {
@@ -22,6 +23,11 @@ public class NumberPadlockRuller : MonoBehaviour
     {
         _myRuller.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
         _myRuller.GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.clear);
+    }
+
+    public void SetNum(int step)
+    {
+        num = step;
     }
 
     public int GetNumber()

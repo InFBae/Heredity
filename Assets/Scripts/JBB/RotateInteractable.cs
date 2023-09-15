@@ -139,7 +139,7 @@ public class RotateInteractable : XRBaseInteractable
                 //even if we snap during rotation
                 newRight = Quaternion.AngleAxis(angle, worldRotationAxis) * m_StartingWorldAxis;
                 angle = Vector3.SignedAngle(worldAxisStart, newRight, worldRotationAxis);
-                Quaternion newRot = Quaternion.AngleAxis(angle, worldRotationAxis) * m_SyncTransform.localRotation;
+                Quaternion newRot = Quaternion.AngleAxis(angle, worldRotationAxis) * m_SyncTransform.rotation;
 
                 //then we redo it but this time using finalAngle, that will snap if needed.
                 newRight = Quaternion.AngleAxis(finalAngle, worldRotationAxis) * m_StartingWorldAxis;
@@ -147,10 +147,10 @@ public class RotateInteractable : XRBaseInteractable
                 OnDialAngleChanged.Invoke(finalAngle);
                 OnDialChanged.Invoke(this);
                 finalAngle = Vector3.SignedAngle(worldAxisStart, newRight, worldRotationAxis);
-                Quaternion newRBRotation = Quaternion.AngleAxis(finalAngle, worldRotationAxis) * m_SyncTransform.localRotation;
+                Quaternion newRBRotation = Quaternion.AngleAxis(finalAngle, transform.TransformDirection(LocalRotationAxis)) * transform.rotation;
 
 
-                transform.localRotation = newRBRotation;
+                transform.rotation = newRBRotation;
                 m_SyncTransform.transform.rotation = newRot;
 
                 m_GrabbedRotation = m_GrabbingInteractor.transform.rotation;
