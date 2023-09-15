@@ -15,33 +15,36 @@ namespace Basement.MorgueRoom
 
         private Image imgDisplay;
 
-        public Stack<int> inputDatas {  get; private set; }
+        public List<int> inputDatas {  get; private set; }
 
         private void Awake()
         {
             imgDisplay = gameObject.GetComponent<Image>();
-
-            inputDatas = new Stack<int>();
+            inputDatas = new List<int>();
         }
 
         public void SetDisplayText(int inputData)
         {
-            inputDatas.Push(inputData);
-            ShowDispaly();
+            inputDatas.Add(inputData);
+            ShowDisplay();
         }
 
         public void CancelInputData()
         {
-            inputDatas.Pop();
-            ShowDispaly();
+            Debug.Log("CancelInputData");
+
+            if(inputDatas.Count > 0)
+                inputDatas.RemoveAt(inputDatas.Count-1);
+
+            ShowDisplay();
         }
 
-        private void ShowDispaly()
+        private void ShowDisplay()
         {
+            Debug.Log(string.Join(" ", inputDatas));
+
             if(inputDatas.Count > 4)
-            {
                 txtDisplayData.text = string.Join(" ", inputDatas.TakeLast(4));
-            }
             else
                 txtDisplayData.text = string.Join(" ", inputDatas);
         }

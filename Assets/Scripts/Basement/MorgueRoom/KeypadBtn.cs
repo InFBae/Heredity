@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 namespace Basement.MorgueRoom
 {
@@ -21,7 +22,7 @@ namespace Basement.MorgueRoom
 
         private Image imgKeypadBtn;
 
-        private bool isActiveBtn = true;
+        private bool isActiveBtn = false;
         public UnityAction<KeypaydNumType> OnBtnClick;
 
         private void Awake()
@@ -42,28 +43,23 @@ namespace Basement.MorgueRoom
             {
                 if (((1 << other.gameObject.layer) & PlayerLayer) != 0)
                 {
-                    StartCoroutine(ClickedBtn());
+                    Debug.Log($"[KeypadBtn] OnTriggerEnter : {keyNumber}");
+
+                    imgKeypadBtn.color = Color.gray;
                     OnBtnClick?.Invoke(keyNumber);
 
                     isActiveBtn = true;
                 }
             }
-           
         }
 
         public void OnTriggerExit(Collider other)
         {
             if (((1 << other.gameObject.layer) & PlayerLayer) != 0)
             {
+                imgKeypadBtn.color = Color.white;
                 isActiveBtn = false;
             }
-        }
-        private IEnumerator ClickedBtn()
-        {
-            imgKeypadBtn.color = Color.gray;
-            yield return new WaitForSeconds(0.5f);
-
-            imgKeypadBtn.color = Color.white;
         }
     }
 }

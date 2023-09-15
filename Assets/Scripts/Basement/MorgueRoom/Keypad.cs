@@ -29,14 +29,14 @@ namespace Basement.MorgueRoom
         private KeypadDisplay display;
 
         [SerializeField]
-        private KeypadBtn[] keypads;
+        private KeypadBtn[] keypadBtns;
 
         [SerializeField]
         private MorgueRoomDoor door;
 
         private void Awake()
         {
-            foreach (var btn in keypads)
+            foreach (var btn in keypadBtns)
             {
                 btn.OnBtnClick += ClikedKeypadNum;
             }
@@ -60,14 +60,21 @@ namespace Basement.MorgueRoom
 
         private void CheckedCorrectPassword()
         {
+            door.Unlock();
+
+            /*
             var inputPassword = display.inputDatas.ToArray();
 
-            if(inputPassword.Length == keypads.Length)
+            Debug.Log(string.Join(",", inputPassword));
+
+            if(inputPassword.Length == password.Length)
             {
                 bool isCorrect = true;
                 for(int i =0; i<inputPassword.Length; i++)
                 {
-                    if (inputPassword[i] != (int)keypads[i].KeyNumberType)
+                    Debug.Log($"{inputPassword[i]} : {password[i]}");
+
+                    if (inputPassword[i] != password[i])
                     {
                         isCorrect = false;
                         break;
@@ -79,6 +86,7 @@ namespace Basement.MorgueRoom
                     door.Unlock();
                 }
             }
+            //*/
         }
     }
 }
