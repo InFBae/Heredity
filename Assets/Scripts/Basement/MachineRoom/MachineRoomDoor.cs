@@ -11,9 +11,16 @@ namespace Basement.MachineRoom
 			base.Awake();
 
 			Lock();
+			rb.isKinematic = true;
 		}
 
-		public override void Open()
+        public override void Unlock()
+        {
+            base.Unlock();
+			rb.isKinematic = false;
+        }
+
+        public override void Open()
 		{
 		}
 	}
