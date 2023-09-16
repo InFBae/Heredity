@@ -24,8 +24,6 @@ namespace Elevator
 		[SerializeField]
 		private LayerMask PlayerLayer;
 
-		protected CircleCollider2D btnCollider;
-		
 		public UnityAction OnElevatorBtnClick;
 
 		protected bool isActiveBtn = true;
@@ -33,9 +31,6 @@ namespace Elevator
 		protected virtual void Awake()
 		{
 			OnElevatorBtnClick += SetClickedBtn;
-
-            btnCollider = gameObject.GetComponent<CircleCollider2D>();
-
             SetInitBtn();
 		}
 	
