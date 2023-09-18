@@ -10,7 +10,7 @@ public class Hint : Item, IUseable
 
     public LayerMask hintLayer;
 
-    private int hintCount = 5;
+    private int hintCount = 4;
     public int leftHintCount { get { return hintCount - 1; } }
 
     public int triggerNum;
@@ -58,11 +58,6 @@ public class Hint : Item, IUseable
             else if (other.gameObject == hintColliders[4])
             {
                 triggerNum = 5;
-                Use();
-            }
-            else if (other.gameObject == hintColliders[5])
-            {
-                triggerNum = 6;
                 Use();
             }
         }
