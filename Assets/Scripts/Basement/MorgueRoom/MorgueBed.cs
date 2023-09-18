@@ -27,8 +27,6 @@ namespace Basement.MorgueRoom
 			grabInteractable.selectExited.AddListener(DrawerBed);
 			grabInteractable.selectEntered.AddListener(SelectedGrab);
 			rb = gameObject.GetComponent<Rigidbody>();
-
-			Unlock();
 		}
 
 		private void SelectedGrab(SelectEnterEventArgs args)

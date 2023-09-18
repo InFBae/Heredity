@@ -16,6 +16,8 @@ public class Drawer : MonoBehaviour, IPullable
 	protected virtual void Awake()
 	{
 		configurableJoint = gameObject.GetComponent<ConfigurableJoint>();
+
+		Unlock();
 	}
 
 	public void Pull()
