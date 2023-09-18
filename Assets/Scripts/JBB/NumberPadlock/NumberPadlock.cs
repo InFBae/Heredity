@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class NumberPadlock : MonoBehaviour
 {
     [SerializeField] private int[] password = new int[4];
     [SerializeField] NumberPadlockRuller[] rullers;
+
     [SerializeField] Joint[] ringJoint;
     [SerializeField] Collider ringCollider;
 
@@ -14,11 +16,16 @@ public class NumberPadlock : MonoBehaviour
         for(int i = 0; i < password.Length; i++)
         {
             //Debug.Log($"Password : {password[i]}, Ruller : {rullers[i].GetNumber()}");
-            if (password[i] != rullers[i].GetNumber())   
+            if (password[i] != rullers[i].num)   
                 return;
         }
-        Unlock();
+        unlockedEvent?.Invoke();
     }
+
+    [System.Serializable]
+    public class UnlockedEvent : UnityEvent { }
+
+    public UnlockedEvent unlockedEvent;
 
     public void Unlock()
     {

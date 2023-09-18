@@ -64,7 +64,7 @@ GameObject:
   - component: {fileID: 1708362457518145446}
   - component: {fileID: 526647511446560406}
   - component: {fileID: 5389769761835002404}
-  - component: {fileID: 1307730535541018535}
+  - component: {fileID: 8093527600073710979}
   m_Layer: 0
   m_Name: MorgueBox_Bed2
   m_TagString: Untagged
@@ -411,7 +411,7 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
---- !u!114 &1307730535541018535
+--- !u!114 &8093527600073710979
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -420,7 +420,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1203663817608550}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f41328467de3dc4faf8e14816329aa3, type: 3}
+  m_Script: {fileID: 11500000, guid: 92e54aeb2238f4b4caade5ef5598dc0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   limitLength: 1
@@ -549,8 +549,8 @@ Transform:
   m_GameObject: {fileID: 1868227809417868}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.38059175, y: 4.0403455e-17, z: -1.8196099}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.6}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4184830658384070}
   - {fileID: 545357423105365892}

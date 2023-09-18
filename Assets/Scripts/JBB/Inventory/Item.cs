@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -24,6 +25,8 @@ public class Item : XRGrabInteractable
             transform.SetParent(null);
             transform.localScale = originalScale;
             inSlot = false;
+            //gameObject.layer = LayerMask.NameToLayer("Item");
+            gameObject.SetLayerRecursively(LayerMask.NameToLayer("Item"));
             currentSlot.ResetColor();
             currentSlot = null;
         }

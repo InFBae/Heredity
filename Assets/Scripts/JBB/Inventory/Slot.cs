@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Transactions;
+using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -21,6 +22,7 @@ public class Slot : MonoBehaviour
     {
         if (ItemInSlot == null && other.GetComponent<Item>())
         {
+            slotImage.color = Color.gray;
             other.gameObject.GetComponent<Item>().onSlot.AddListener(InsertItem);
         }
     }
@@ -29,6 +31,7 @@ public class Slot : MonoBehaviour
     {
         if (ItemInSlot == null && other.GetComponent<Item>())
         {
+            ResetColor();
             other.gameObject.GetComponent<Item>().onSlot.RemoveListener(InsertItem);
         }
     }
@@ -40,6 +43,8 @@ public class Slot : MonoBehaviour
         {
             go.GetComponent<Rigidbody>().isKinematic = true;
             go.transform.SetParent(gameObject.transform, true);
+            //go.layer = LayerMask.NameToLayer("ItemInSlot");
+            go.SetLayerRecursively(LayerMask.NameToLayer("ItemInSlot"));
             go.transform.localPosition = go.GetComponent<Item>().slotPosition;
             go.transform.localEulerAngles = go.GetComponent<Item>().slotRotation;
             go.transform.localScale = go.GetComponent<Item>().slotScale;

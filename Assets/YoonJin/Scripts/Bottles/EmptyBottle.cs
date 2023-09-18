@@ -89,6 +89,8 @@ public class EmptyBottle : MonoBehaviour
 
                 if (liquidBottle != null) 
                 {
+                    // 성공 데이터로 변경
+                    liquidBottle.liquidData = Resources.Load<LiquidData>("Data/LiquidData/SuccessLiquid");
                     // 액체 데이터를 사용하여 mpb색상값 설정
                     mainLiquidColor = Color.white;
                     edgeLiquidColor = Color.white;
@@ -99,12 +101,16 @@ public class EmptyBottle : MonoBehaviour
                 }
                 else
                 {
+                    // 실패 데이터로 변경
+                    liquidBottle.liquidData = Resources.Load<LiquidData>("Data/LiquidData/FailureLiquid");
+
                     mainLiquidColor = Color.black;
                     edgeLiquidColor = Color.black;
 
                     // 실패할 때 검은색 설정
                     mpb.SetColor("_MainLiquid", Color.black);
                     mpb.SetColor("_EdgeLiquid", Color.black);
+
                     Debug.Log("실패!");
                 }
 
@@ -119,6 +125,9 @@ public class EmptyBottle : MonoBehaviour
             }
         }
         Debug.Log("실패!");
+
+        // 실패 데이터로 변경
+        liquidBottle.liquidData = Resources.Load<LiquidData>("Data/LiquidData/FailureLiquid");
 
         // 수정된 색상을 MaterialPropertyBlock에 설정
         mpb.SetColor("_MainLiquid", mainLiquidColor);
