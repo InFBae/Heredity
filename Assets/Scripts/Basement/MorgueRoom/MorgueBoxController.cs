@@ -15,6 +15,7 @@ public class MorgueBoxController : MonoBehaviour
 
 	private int closedCnt = 0;
 
+	/*
 	private void Awake()
 	{
 		foreach(var box in morgueBoxes)
@@ -38,4 +39,5 @@ public class MorgueBoxController : MonoBehaviour
 
 		imgKeyPostionHint.gameObject.SetActive(true);
 	}
+	//*/
 }
