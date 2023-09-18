@@ -10,7 +10,10 @@ namespace Basement.MorgueRoom
         [SerializeField]
         private Image imgHint;
 
-        private int openCnt;
+		[SerializeField]
+		private Image imgHintPoint;
+
+		private int openCnt;
 
 		private void Awake()
 		{
@@ -19,11 +22,18 @@ namespace Basement.MorgueRoom
 
 		public void ScatteredView()
 		{
-			var color = imgHint.color;
-			color.a = (++openCnt * 2) * 0.1f;
-			imgHint.color = color;
-
-			Debug.Log($"[ScatteredView] : {color.a}");
+			if(imgHint.color.a <= 0.8)
+			{
+				var color = imgHint.color;
+				color.a = (++openCnt * 1) * 0.1f;
+				imgHint.color = color;
+			}
+			else if (imgHintPoint.color.a <= 1)
+			{
+				var color = imgHintPoint.color;
+				color.a = (++openCnt * 1) * 0.1f;
+				imgHintPoint.color = color;
+			}
 		}
 	}
 }

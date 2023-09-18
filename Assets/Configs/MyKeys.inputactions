@@ -48,6 +48,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "RightControllerKey",
+            "id": "953491ea-2994-4f10-ad24-744f63f7c917",
+            "actions": [
+                {
+                    "name": "Setting",
+                    "type": "Button",
+                    "id": "d65b9c09-eca9-476c-b253-8d35f0dd0836",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "41ea757f-c619-408d-86d4-e0c50cb7fdde",
+                    "path": "<XRController>{RightHand}/secondaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Setting",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

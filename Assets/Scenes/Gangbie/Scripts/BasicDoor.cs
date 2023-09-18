@@ -5,7 +5,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class BasicDoor : Door
 {
-    XRBaseInteractable[] handles;
+    protected XRBaseInteractable[] handles;
     protected override void Awake()
     {
         base.Awake();

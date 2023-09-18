@@ -17,7 +17,7 @@ public class LiquidBottle : RespawnableBottle
     Rigidbody plugRb;   // 뚜껑의 리지드바디
     public MaterialPropertyBlock m_MaterialPropertyBlock;  // 셰이더의 속성 블록
     Rigidbody bottleRb;   // 병의 리지드바디
-    [SerializeField] LiquidData liquidData;  // 병 안에 들어있는 액체의 정보
+    [SerializeField] public LiquidData liquidData;  // 병 안에 들어있는 액체의 정보
 
     private bool isPouring = false; // 현재 붓고있는지
     public bool isPlugIn = true;   // 현재 뚜껑이 꽂혀있는지
