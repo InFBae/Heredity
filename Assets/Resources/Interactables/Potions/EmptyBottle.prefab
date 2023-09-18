@@ -5401,7 +5401,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 536870916
+    m_Bits: 4
   m_AttachTransform: {fileID: 1526942144294419020}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1
@@ -11685,7 +11685,7 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
-  m_AttachTransform: {fileID: 138649510024511422}
+  m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
   m_UseDynamicAttach: 1
   m_MatchAttachPosition: 1
@@ -11693,7 +11693,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 0
+  m_MovementType: 2
   m_VelocityDamping: 0.4
   m_VelocityScale: 1
   m_AngularVelocityDamping: 0.4
@@ -12139,7 +12139,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 536870912
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_CustomReticle: {fileID: 0}
@@ -12284,7 +12284,7 @@ MonoBehaviour:
       m_Calls: []
   m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 0
+  m_UseDynamicAttach: 1
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
@@ -12341,7 +12341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shakeSpeed: 1
-  shakeCount: 10
+  shakeCount: 20
 --- !u!114 &7835149899158853326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12354,8 +12354,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4214d60046c6cad4396f4c643790efba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  successLiquid: {fileID: 11400000, guid: 733a6e703d4736d4b9fa1d99d78e0ccd, type: 2}
-  failureLiquid: {fileID: 11400000, guid: 07938cf12b92f7441b64cf768219f32c, type: 2}
   recipes:
   - {fileID: 11400000, guid: a1c53de8e5c32034b8ee8ac78b36a885, type: 2}
 --- !u!65 &260971903

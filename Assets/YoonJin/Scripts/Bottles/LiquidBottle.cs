@@ -177,7 +177,12 @@ public class LiquidBottle : RespawnableBottle
 
             Destroy(SmashedObject.gameObject, 4.0f);
             Destroy(this.gameObject, 4);
-            GameManager.Resource.Instantiate<GameObject>(GameManager.Resource.Load<GameObject>($"Interactables/Potions/{prefabName}"), startingPosition, startingRotation);            
+            GameManager.Resource.Instantiate<GameObject>(GameManager.Resource.Load<GameObject>($"Interactables/Potions/{prefabName}"), startingPosition, startingRotation);
+            Collider[] colliders = GetComponentsInChildren<Collider>();
+            foreach(Collider collider in colliders)
+            {
+                collider.enabled = false;
+            }
         }
     }
 }
