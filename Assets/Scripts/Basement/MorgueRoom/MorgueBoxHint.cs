@@ -9,19 +9,38 @@ public class MorgueBoxHint : MonoBehaviour
 	private XRGrabInteractable grabInteractable;
 	private Rigidbody rb;
 
+
+
+	private bool isGrabHint;
+
 	private void Awake()
 	{
 		grabInteractable = gameObject.GetComponent<XRGrabInteractable>();
 		rb = gameObject.GetComponent<Rigidbody>();
-		//IsActiveGrab(false);
+		
+		isGrabHint = false;
+	}
+
+	private void Start()
+	{
+		IsActiveGrab(false);
 	}
 
 	public void IsActiveGrab(bool isActive)
 	{
-		Debug.Log($"[IsActiveGrab] {isActive}");
+		if(isGrabHint == false)
+		{
+			rb.constraints = isActive ? RigidbodyConstraints.None : RigidbodyConstraints.FreezeAll;
+		}
+	}
+	
+	private void OnSelectEnter(SelectEnterEventArgs args)
+	{
+		isGrabHint = true;
+	}
 
-		//rb.constraints = isActive ? RigidbodyConstraints.None : RigidbodyConstraints.FreezeAll;
-
-		//grabInteractable.interactionLayers = isActive ? enableMask : disableMask;
+	private void OnSelectExit(SelectExitEventArgs args)
+	{
+		isGrabHint = false;
 	}
 }
