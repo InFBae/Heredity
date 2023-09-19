@@ -7,11 +7,11 @@ namespace Basement.MorgueRoom
 {
 	public class MorgueBoxHint : MonoBehaviour
 	{
+		[SerializeField]
+		private AudioSource recipeDropSound;
 
 		private XRGrabInteractable grabInteractable;
 		private Rigidbody rb;
-
-
 
 		private bool isGrabHint;
 
@@ -31,9 +31,7 @@ namespace Basement.MorgueRoom
 		public void IsActiveGrab(bool isActive)
 		{
 			if (isGrabHint == false)
-			{
 				rb.constraints = isActive ? RigidbodyConstraints.None : RigidbodyConstraints.FreezeAll;
-			}
 		}
 
 		private void OnSelectEnter(SelectEnterEventArgs args)
@@ -44,6 +42,12 @@ namespace Basement.MorgueRoom
 		private void OnSelectExit(SelectExitEventArgs args)
 		{
 			isGrabHint = false;
+		}
+
+		private void OnCollisionEnter(Collision collision)
+		{
+			if(rb.constraints == RigidbodyConstraints.None)
+				recipeDropSound.Play();
 		}
 	}
 }

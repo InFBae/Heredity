@@ -29,6 +29,7 @@ namespace Basement.MorgueRoom
 				grabInteractable = gameObject.GetComponent<XRGrabInteractable>();
 				grabInteractable.activated.AddListener(StartSpray);
 				grabInteractable.deactivated.AddListener(StopSpray);
+				grabInteractable.selectExited.AddListener(StopSpray);
 			}    
 		}
 
@@ -41,9 +42,19 @@ namespace Basement.MorgueRoom
 
         private void StopSpray(DeactivateEventArgs args)
         {
+			StopSpray();
+		}
+
+		private void StopSpray(SelectExitEventArgs args)
+		{
+			StopSpray();
+		}
+
+		private void StopSpray()
+		{
 			sparyEffect.Stop();
 			spraySound.Stop();
 			sprayHead.IsSpraying = false;
 		}
-    }
+	}
 }
