@@ -6,6 +6,7 @@ public class EmptyBottle : MonoBehaviour
 {
     public List<RecipeData> recipes = new List<RecipeData>();
     private List<LiquidData> inLiquidBottle = new List<LiquidData>();
+    [SerializeField] Material material;
 
     // 채워져있는지
     private bool isFilled = false;
@@ -97,7 +98,8 @@ public class EmptyBottle : MonoBehaviour
 
                     mpb.SetColor("_MainLiquid", Color.white);
                     mpb.SetColor("_EdgeLiquid", Color.white);
-                    Debug.Log("성공!");
+
+                    //Debug.Log("성공!");
                 }
                 else
                 {
@@ -111,7 +113,7 @@ public class EmptyBottle : MonoBehaviour
                     mpb.SetColor("_MainLiquid", Color.black);
                     mpb.SetColor("_EdgeLiquid", Color.black);
 
-                    Debug.Log("실패!");
+                    //Debug.Log("실패!");
                 }
 
                 // 수정된 색상을 MaterialPropertyBlock에 설정
@@ -124,7 +126,7 @@ public class EmptyBottle : MonoBehaviour
                 return true;
             }
         }
-        Debug.Log("실패!");
+        //Debug.Log("실패!");
 
         // 실패 데이터로 변경
         liquidBottle.liquidData = Resources.Load<LiquidData>("Data/LiquidData/FailureLiquid");

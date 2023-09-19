@@ -9,6 +9,7 @@ public class PotionChecker : MonoBehaviour
 {
     MaterialPropertyBlock m_MaterialPropertyBlock;
     MeshRenderer m_Renderer;
+    LiquidData m_LiquidData;
 
     [SerializeField] private float fillAmount;
 
@@ -52,30 +53,51 @@ public class PotionChecker : MonoBehaviour
             // 액체의 중앙, 가장자리 색상을 변경 (쉐이더 참조)
             m_MaterialPropertyBlock.SetColor("_MainLiquid", mpb.GetColor("_MainLiquid"));
             m_MaterialPropertyBlock.SetColor("_EdgeLiquid", mpb.GetColor("_EdgeLiquid"));
+            m_LiquidData = liquidData;
             isFilled = true;
         }
 
         renderer.SetPropertyBlock(mpb);
         m_Renderer.SetPropertyBlock(m_MaterialPropertyBlock);
         
-
-        if (fillAmount > 0.9)
-        {
-            CheckPotion(liquidData);
-        }
     }
 
     public void CheckPotion(LiquidData liquidData)
     {
-        if (liquidData.liquidName == "Success Liquid")
+        if (fillAmount > 0.9f && liquidData.liquidName == "Success Liquid")
         {
             // Success
-            Debug.Log("Success");
+            Debug.Log("Success"); 
+            
         }
         else
         {
             // Fail
             Debug.Log("Fail");
+        }
+        StartCoroutine(ReduceFillAmountRoutine());
+    }
+
+    public void DialCheck(int step)
+    {
+        //Debug.Log($"step : {step}");
+        if (step == 12)
+        {
+            CheckPotion(m_LiquidData);
+        }
+    }
+
+    IEnumerator ReduceFillAmountRoutine()
+    {
+        while (true)
+        {
+            fillAmount -= 0.05f * Time.deltaTime;
+            yield return null;
+
+            if (fillAmount < 0.5f)
+            {
+                yield break;
+            }
         }
     }
 }
