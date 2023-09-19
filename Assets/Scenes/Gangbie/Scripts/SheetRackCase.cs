@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SheetRackCase : MonoBehaviour
 {
     [SerializeField] GameObject jackInTheBox;
     [SerializeField] GameObject position;
+
+    public UnityEvent soundPlay;
 
     private void Update()
     {
@@ -14,6 +17,7 @@ public class SheetRackCase : MonoBehaviour
         {
             // jackInTheBox.transform.localScale = new Vector3(0.05f, 0.05f, 0.05f);
             jackInTheBox.SetActive(true);
+            soundPlay?.Invoke();
         }
     }
 }

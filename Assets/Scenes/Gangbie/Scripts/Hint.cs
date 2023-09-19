@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Hint : Item, IUseable
 {
     [SerializeField] GameObject hintCanvas;
     [SerializeField] List<GameObject> hintColliders;
+    public UnityEvent hintSound;
 
     public LayerMask hintLayer;
 
@@ -33,6 +35,7 @@ public class Hint : Item, IUseable
 
     private void OnTriggerEnter(Collider other)
     {
+        hintSound?.Invoke();
         if (other.gameObject.layer == hintColliders[0].layer)
         {
             if (other.gameObject == hintColliders[0])
