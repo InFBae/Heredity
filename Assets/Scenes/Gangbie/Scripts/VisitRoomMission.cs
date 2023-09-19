@@ -19,16 +19,9 @@ public class VisitRoomMission : MonoBehaviour
 
     public MissionCompleteEvent missonCompleted;
 
-    private void Awake()
-    {
-        // drawer1.AxisLength = 0;
-        // drawer3.AxisLength = 0;
-        // OnMissionComplete();
-    }
-
     public void OnMissionComplete()
     {
-        monitorText.text = "뒤의 철제 사물함 서랍에서 열쇠를 챙기세요";
+        monitorText.text = "철제 사물함 서랍에서 기계실 열쇠를 챙기세요";
         drawer1.enabled = true;
         drawer3.enabled = true;
         drawer1.AxisLength = 0.35f;
