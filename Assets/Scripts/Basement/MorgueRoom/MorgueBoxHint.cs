@@ -3,44 +3,47 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class MorgueBoxHint : MonoBehaviour
+namespace Basement.MorgueRoom
 {
-
-	private XRGrabInteractable grabInteractable;
-	private Rigidbody rb;
-
-
-
-	private bool isGrabHint;
-
-	private void Awake()
+	public class MorgueBoxHint : MonoBehaviour
 	{
-		grabInteractable = gameObject.GetComponent<XRGrabInteractable>();
-		rb = gameObject.GetComponent<Rigidbody>();
-		
-		isGrabHint = false;
-	}
 
-	private void Start()
-	{
-		IsActiveGrab(false);
-	}
+		private XRGrabInteractable grabInteractable;
+		private Rigidbody rb;
 
-	public void IsActiveGrab(bool isActive)
-	{
-		if(isGrabHint == false)
+
+
+		private bool isGrabHint;
+
+		private void Awake()
 		{
-			rb.constraints = isActive ? RigidbodyConstraints.None : RigidbodyConstraints.FreezeAll;
-		}
-	}
-	
-	private void OnSelectEnter(SelectEnterEventArgs args)
-	{
-		isGrabHint = true;
-	}
+			grabInteractable = gameObject.GetComponent<XRGrabInteractable>();
+			rb = gameObject.GetComponent<Rigidbody>();
 
-	private void OnSelectExit(SelectExitEventArgs args)
-	{
-		isGrabHint = false;
+			isGrabHint = false;
+		}
+
+		private void Start()
+		{
+			IsActiveGrab(false);
+		}
+
+		public void IsActiveGrab(bool isActive)
+		{
+			if (isGrabHint == false)
+			{
+				rb.constraints = isActive ? RigidbodyConstraints.None : RigidbodyConstraints.FreezeAll;
+			}
+		}
+
+		private void OnSelectEnter(SelectEnterEventArgs args)
+		{
+			isGrabHint = true;
+		}
+
+		private void OnSelectExit(SelectExitEventArgs args)
+		{
+			isGrabHint = false;
+		}
 	}
 }
