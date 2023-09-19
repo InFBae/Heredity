@@ -27,7 +27,7 @@ public class Shaker : MonoBehaviour
             curShakeCount++;
             isWaiting = true;
             StartCoroutine(WaitAndShake(0.5f));
-            Debug.Log(curShakeCount + "È¸ ¼¯ÀÓ");
+            //Debug.Log(curShakeCount + "È¸ ¼¯ÀÓ");
             if (curShakeCount >= shakeCount)
             {
                 EmptyBottle emp = GetComponent<EmptyBottle>();

@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class Hint : Item, IUseable
 {
@@ -70,5 +72,22 @@ public class Hint : Item, IUseable
                 hintColliders[4].SetActive(false);
             }
         }
+    }
+
+    protected override void OnSelectEntering(SelectEnterEventArgs args)
+    {
+        if (inSlot)
+        {
+            gameObject.GetComponent<Rigidbody>().isKinematic = false;
+            currentSlot.ItemInSlot = null;
+            transform.SetParent(null);
+            transform.localScale = originalScale;
+            inSlot = false;
+            gameObject.layer = LayerMask.NameToLayer("Hint");
+            currentSlot.ResetColor();
+            currentSlot = null;
+        }
+
+        base.OnSelectEntering(args);
     }
 }
