@@ -31,22 +31,18 @@ namespace Basement.MorgueRoom
 
 		private void SelectedGrab(SelectEnterEventArgs args)
 		{
-			//rb.constraints = RigidbodyConstraints.None;
 		}
 
 		private void DrawerBed(SelectExitEventArgs args)
 		{
-			//*
 			if(Vector3.Distance(boxFrame.position, transform.position) > pullDistance) 
 			{
 				boxHint.IsActiveGrab(true);
-				//rb.constraints = RigidbodyConstraints.FreezePositionZ;
 			}
 			else
 			{
 				boxHint.IsActiveGrab(false);
 			}
-			//*/
 		}
 	}
 }

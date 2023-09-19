@@ -43,8 +43,6 @@ namespace Basement.MorgueRoom
             {
                 if (((1 << other.gameObject.layer) & PlayerLayer) != 0)
                 {
-                    Debug.Log($"[KeypadBtn] OnTriggerEnter : {keyNumber}");
-
                     OnBtnClick?.Invoke(this);
 
                     isActiveBtn = true;
