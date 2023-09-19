@@ -86,6 +86,13 @@ public class LiquidBottle : RespawnableBottle
                     bottle.FillBottle(0.1f, mesh, m_MaterialPropertyBlock, liquidData);
                 }
 
+                PotionChecker potionChecker = hit.collider.GetComponent<PotionChecker>();
+
+                if (potionChecker != null)
+                {
+                    potionChecker.FillFunnel(0.1f, mesh, m_MaterialPropertyBlock, liquidData);
+                }
+
                 // 들어가야 하는 병에 들어갔을 때
                 // LiquidReceiver receiver = hit.collider.GetComponent<LiquidReceiver>();
                 
