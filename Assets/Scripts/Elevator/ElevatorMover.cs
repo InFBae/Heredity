@@ -8,6 +8,12 @@ namespace Elevator
 {
 	public class ElevatorMover : MonoBehaviour
 	{
+		[SerializeField]
+		private float elevatorSpeed;
+
+		[SerializeField]
+		private AudioSource elevatorMovingSound;
+
 		public UnityAction<ElevMoveDirection, int> OnStartMovedElevator;
 		public UnityAction<ElevMoveDirection, int> OnMovingElevator;
 		public UnityAction<int> OnEndMovedElevator;
@@ -37,10 +43,11 @@ namespace Elevator
 		private IEnumerator MoveRoutine(ElevMoveDirection direction,  int moveCnt)
 		{
 			int moveStep = direction == ElevMoveDirection.Up ? 1 : -1;
+			elevatorMovingSound.Play();
 
 			while (moveCnt > 0)
 			{
-				yield return new WaitForSeconds(1f);
+				yield return new WaitForSeconds(elevatorSpeed);
 
 				CurrentFloor += moveStep;
 
@@ -48,6 +55,7 @@ namespace Elevator
 				moveCnt--;
 			}
 
+			elevatorMovingSound.Stop();
 			OnEndMovedElevator?.Invoke(CurrentFloor);
 		}
 

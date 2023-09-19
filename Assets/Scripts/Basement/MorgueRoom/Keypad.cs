@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Basement.MorgueRoom
 {
@@ -34,46 +35,54 @@ namespace Basement.MorgueRoom
         [SerializeField]
         private MorgueRoomDoor door;
 
+        [SerializeField]
+        private float delaySeconds;
+
+        private AudioSource btnAudio;
+
+		private bool isEnableBtn = true;
+
         private void Awake()
         {
             foreach (var btn in keypadBtns)
             {
                 btn.OnBtnClick += ClikedKeypadNum;
             }
-        }
+			btnAudio = gameObject.GetComponent<AudioSource>();
+		}
 
-        private void ClikedKeypadNum(KeypaydNumType inputData)
+        private void ClikedKeypadNum(KeypadBtn clickedBtn)
         {
-            switch(inputData)
+            if (isEnableBtn == false)
+                return;
+
+            StartCoroutine(ClikedBtnStatusRoutine(clickedBtn.ImgKeypadBtn));
+
+			switch (clickedBtn.KeyNumberType)
             {
                 case KeypaydNumType.Enter:
-                    CheckedCorrectPassword();
+					CheckedCorrectPassword();
                     break;
                 case KeypaydNumType.Cancel:
-                    display.CancelInputData();
+					display.CancelInputData();
                     break;
                 default:
-                    display.SetDisplayText((int)inputData);
+                    display.SetDisplayText((int)clickedBtn.KeyNumberType);
                     break;
             }
+
+            StartCoroutine(WaitClikedBtnRoutine());
         }
 
         private void CheckedCorrectPassword()
         {
-            door.Unlock();
-
-            /*
             var inputPassword = display.inputDatas.ToArray();
-
-            Debug.Log(string.Join(",", inputPassword));
 
             if(inputPassword.Length == password.Length)
             {
                 bool isCorrect = true;
                 for(int i =0; i<inputPassword.Length; i++)
                 {
-                    Debug.Log($"{inputPassword[i]} : {password[i]}");
-
                     if (inputPassword[i] != password[i])
                     {
                         isCorrect = false;
@@ -81,12 +90,46 @@ namespace Basement.MorgueRoom
                     }
                 }
 
-                if(isCorrect)
+                if (isCorrect)
                 {
-                    door.Unlock();
-                }
-            }
-            //*/
-        }
-    }
+					door.Unlock();
+                    return;
+				}
+			}
+            StartCoroutine(PlayAudioCoroutine());
+		}
+
+        private IEnumerator WaitClikedBtnRoutine()
+        {
+            isEnableBtn = false;
+
+			yield return new WaitForSeconds(delaySeconds);
+
+            isEnableBtn = true;
+
+		}
+
+		private IEnumerator ClikedBtnStatusRoutine(Image btnImg)
+		{
+            btnImg.color = Color.gray;
+			btnAudio.Play();
+
+			yield return new WaitForSeconds(0.5f);
+
+			btnImg.color = Color.white;
+
+		}
+
+		private IEnumerator PlayAudioCoroutine()
+		{
+            int currentRepeatCount = 0;
+			while (currentRepeatCount < 2)
+			{
+				btnAudio.Play();
+				yield return new WaitForSeconds(btnAudio.clip.length);
+
+				currentRepeatCount++;
+			}
+		}
+	}
 }

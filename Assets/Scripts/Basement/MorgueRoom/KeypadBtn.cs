@@ -20,14 +20,14 @@ namespace Basement.MorgueRoom
         [SerializeField]
         private LayerMask PlayerLayer;
 
-        private Image imgKeypadBtn;
+        public Image ImgKeypadBtn { get; private set; }
 
         private bool isActiveBtn = false;
-        public UnityAction<KeypaydNumType> OnBtnClick;
+        public UnityAction<KeypadBtn> OnBtnClick;
 
         private void Awake()
         {
-            imgKeypadBtn = gameObject.GetComponent<Image>();
+			ImgKeypadBtn = gameObject.GetComponent<Image>();
 
             if (keyNumber == KeypaydNumType.Enter)
                 txtKeyNumber.text = "E";
@@ -45,8 +45,7 @@ namespace Basement.MorgueRoom
                 {
                     Debug.Log($"[KeypadBtn] OnTriggerEnter : {keyNumber}");
 
-                    imgKeypadBtn.color = Color.gray;
-                    OnBtnClick?.Invoke(keyNumber);
+                    OnBtnClick?.Invoke(this);
 
                     isActiveBtn = true;
                 }
@@ -57,7 +56,6 @@ namespace Basement.MorgueRoom
         {
             if (((1 << other.gameObject.layer) & PlayerLayer) != 0)
             {
-                imgKeypadBtn.color = Color.white;
                 isActiveBtn = false;
             }
         }

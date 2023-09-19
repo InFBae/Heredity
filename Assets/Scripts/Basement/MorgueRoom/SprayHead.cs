@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Threading;
 using UnityEngine;
 
@@ -12,7 +13,7 @@ namespace Basement.MorgueRoom
 
 		public bool IsSpraying { get; set; }
 		public int SprayCount { get; set; }
-		
+
 		private void Update()
 		{
 			if(IsSpraying)
@@ -21,19 +22,12 @@ namespace Basement.MorgueRoom
 
 				if (Physics.Raycast(transform.position, transform.right, out hit))
 				{
-					//Debug.DrawRay(transform.position, transform.right * hit.distance, Color.red);
-					//Debug.Log($"[Raycast] : {hit.collider.gameObject.name}");
-
 					var hitObject = hit.collider.gameObject.GetComponent<IScatterable>();
 
 					if(hitObject != null)
 					{
-						//Debug.Log($"[SprayHead] : {SprayCount}");
-
 						if(++SprayCount == sprayTime)
 						{
-							//Debug.Log($"[SprayHead] : ScatteredView");
-
 							SprayCount = 0;
 							hitObject.ScatteredView();
 						}
