@@ -43,26 +43,31 @@ public class Hint : Item, IUseable
             {
                 triggerNum = 1;
                 Use();
+                hintColliders[0].SetActive(false);
             }
             else if (other.gameObject == hintColliders[1])
             {
                 triggerNum = 2;
                 Use();
+                hintColliders[1].SetActive(false);
             }
             else if (other.gameObject == hintColliders[2])
             {
                 triggerNum = 3;
                 Use();
+                hintColliders[2].SetActive(false);
             }
             else if (other.gameObject == hintColliders[3])
             {
                 triggerNum = 4;
                 Use();
+                hintColliders[3].SetActive(false);
             }
             else if (other.gameObject == hintColliders[4])
             {
                 triggerNum = 5;
                 Use();
+                hintColliders[4].SetActive(false);
             }
         }
     }
