@@ -379,7 +379,7 @@ GameObject:
   - component: {fileID: 7048724645456975427}
   - component: {fileID: 7048724645456975439}
   m_Layer: 0
-  m_Name: Clipboard
+  m_Name: OfficeClipboard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
