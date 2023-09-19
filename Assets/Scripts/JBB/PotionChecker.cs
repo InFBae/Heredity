@@ -59,7 +59,7 @@ public class PotionChecker : MonoBehaviour
         m_Renderer.SetPropertyBlock(m_MaterialPropertyBlock);
         
 
-        if (fillAmount > 1)
+        if (fillAmount > 0.9)
         {
             CheckPotion(liquidData);
         }
