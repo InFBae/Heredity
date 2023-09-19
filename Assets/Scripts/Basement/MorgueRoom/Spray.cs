@@ -11,7 +11,10 @@ namespace Basement.MorgueRoom
         [SerializeField]
         private ParticleSystem sparyEffect;
 
-        [SerializeField]
+		[SerializeField]
+		private AudioSource spraySound;
+
+		[SerializeField]
         private bool IsScatterable;
 
 		private SprayHead sprayHead;
@@ -32,12 +35,14 @@ namespace Basement.MorgueRoom
 		private void StartSpray(ActivateEventArgs args)
         {
 			sparyEffect.Play();
+			spraySound.Play();
 			sprayHead.IsSpraying = true;
 		}
 
         private void StopSpray(DeactivateEventArgs args)
         {
 			sparyEffect.Stop();
+			spraySound.Stop();
 			sprayHead.IsSpraying = false;
 		}
     }

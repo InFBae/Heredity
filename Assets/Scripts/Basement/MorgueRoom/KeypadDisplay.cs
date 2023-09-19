@@ -25,7 +25,9 @@ namespace Basement.MorgueRoom
 
         public void SetDisplayText(int inputData)
         {
-            inputDatas.Add(inputData);
+			Debug.Log($"SetDisplayText : {inputData}");
+
+			inputDatas.Add(inputData);
             ShowDisplay();
         }
 
