@@ -13,11 +13,11 @@ public class Drawer : MonoBehaviour, IPullable
 	[SerializeField]
 	private float lockLength;
 
-	private void Awake()
+	protected virtual void Awake()
 	{
 		configurableJoint = gameObject.GetComponent<ConfigurableJoint>();
 
-		// Unlock();
+		Unlock();
 	}
 
 	public void Pull()

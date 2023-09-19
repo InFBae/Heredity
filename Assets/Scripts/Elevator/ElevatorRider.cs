@@ -12,7 +12,7 @@ namespace Elevator
 		private FloorBtn[] floorBtns;
 
 		[SerializeField]
-		private Transform enteredPoint;
+		private ArrivalPoint enteredPoint;
 
 		[SerializeField]
 		private XROrigin xrOrigin;
@@ -37,6 +37,8 @@ namespace Elevator
 
 			xrOrigin.transform.position = enteredPoint.transform.position;
 			xrOrigin.transform.rotation = enteredPoint.transform.rotation;
+
+			enteredPoint.ArrivalSound.Play();
 		}
 
 		private void SelectedFloor(FloorBtn clickedBtn)

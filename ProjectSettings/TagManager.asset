@@ -14,7 +14,7 @@ TagManager:
   - Slot
   - Item
   - Hint
-  - 
+  - ItemInSlot
   - Grab
   - 'Grab Ignore Ray '
   - 

@@ -21,6 +21,10 @@ namespace Basement.MachineRoom
 		[SerializeField]
 		private ParticleSystem[] sparksParticles;
 
+		[SerializeField]
+		private AudioSource fuseConnectedSound;
+
+
 		private void Awake()
 		{
 			fuseLever.LockLever();
@@ -29,8 +33,8 @@ namespace Basement.MachineRoom
 
 		public void PutFuse(SelectEnterEventArgs args)
 		{
-			foreach (var particle in sparksParticles)
-				particle.Play();
+			fuseConnectedSound.Play();
+			StartCoroutine(ConnectedEffectPlayRoutine());
 
 			fuseLever.UnLockLever();
 		}
@@ -48,6 +52,16 @@ namespace Basement.MachineRoom
 				elevator.StartElevator();
 			else
 				elevator.StopElevator();
+		}
+
+		private IEnumerator ConnectedEffectPlayRoutine()
+		{
+			foreach (var particle in sparksParticles)
+			{
+				particle.Play();
+				yield return new WaitForSeconds(0.5f);
+			}
+				
 		}
 	}
 }

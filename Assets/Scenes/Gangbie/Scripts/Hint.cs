@@ -2,15 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Hint : Item, IUseable
 {
     [SerializeField] GameObject hintCanvas;
     [SerializeField] List<GameObject> hintColliders;
+    public UnityEvent hintSound;
 
     public LayerMask hintLayer;
 
-    private int hintCount = 5;
+    private int hintCount = 4;
     public int leftHintCount { get { return hintCount - 1; } }
 
     public int triggerNum;
@@ -33,37 +35,39 @@ public class Hint : Item, IUseable
 
     private void OnTriggerEnter(Collider other)
     {
+        
         if (other.gameObject.layer == hintColliders[0].layer)
         {
+            hintSound?.Invoke();
             if (other.gameObject == hintColliders[0])
             {
                 triggerNum = 1;
                 Use();
+                hintColliders[0].SetActive(false);
             }
             else if (other.gameObject == hintColliders[1])
             {
                 triggerNum = 2;
                 Use();
+                hintColliders[1].SetActive(false);
             }
             else if (other.gameObject == hintColliders[2])
             {
                 triggerNum = 3;
                 Use();
+                hintColliders[2].SetActive(false);
             }
             else if (other.gameObject == hintColliders[3])
             {
                 triggerNum = 4;
                 Use();
+                hintColliders[3].SetActive(false);
             }
             else if (other.gameObject == hintColliders[4])
             {
                 triggerNum = 5;
                 Use();
-            }
-            else if (other.gameObject == hintColliders[5])
-            {
-                triggerNum = 6;
-                Use();
+                hintColliders[4].SetActive(false);
             }
         }
     }
