@@ -1,4 +1,5 @@
 using Elevator;
+using Basement.MorgueRoom;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -17,6 +18,9 @@ namespace Basement.MachineRoom
 
 		[SerializeField]
 		private ElevatorController elevator;
+
+		[SerializeField]
+		private Keypad keypad;
 
 		[SerializeField]
 		private ParticleSystem[] sparksParticles;
@@ -48,10 +52,16 @@ namespace Basement.MachineRoom
 		{
 			fuseSocket.IsLockSocket = isLeverDown;
 
-			if(isLeverDown) 
+			if(isLeverDown)
+			{
+				keypad.StartKeypad();
 				elevator.StartElevator();
+			}
 			else
+			{
+				keypad.StopKeypad();
 				elevator.StopElevator();
+			}
 		}
 
 		private IEnumerator ConnectedEffectPlayRoutine()
