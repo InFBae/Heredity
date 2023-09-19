@@ -11,6 +11,7 @@ public class ProgressBarController : MonoBehaviour
     [SerializeField] GameObject m_NextStep = null;
 
     [SerializeField] VisitRoomMission visitRoomMission;
+    [SerializeField] AudioSource progressAudio;
 
     float m_SecondsCnt;
     bool m_UpdateTimer;
@@ -29,13 +30,14 @@ public class ProgressBarController : MonoBehaviour
     void UpdateTimer()
     {
         slider.maxValue = m_BarLength;
-
         m_SecondsCnt += Time.deltaTime;
         if (m_SecondsCnt > m_Seconds)
         {
             m_SecondsCnt = 0f;
+
             if (m_NextStep != null)
                 m_NextStep.SetActive(true);
+                progressAudio.enabled = false;
 
             // visitRoomMission.SetChairPosition();
             slider.gameObject.SetActive(false);

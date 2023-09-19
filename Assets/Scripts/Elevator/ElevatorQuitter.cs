@@ -20,6 +20,8 @@ namespace Elevator
 			{
 				xrOrigin.transform.position = point.transform.position;
 				xrOrigin.transform.rotation = point.transform.rotation;
+
+				point.ArrivalSound.Play();
 			}
 		}
 	}

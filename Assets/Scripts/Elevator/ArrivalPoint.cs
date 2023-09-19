@@ -9,5 +9,7 @@ namespace Elevator
 		[SerializeField]
 		private int floorNumber;
 		public int FloorNum { get { return floorNumber; } }
+
+		public AudioSource ArrivalSound;
 	}
 }
