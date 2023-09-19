@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: b17c977d6b1034242a70e48d9264a6df, type: 2}
+--- !u!20 &31880590 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 7529734580072167189, guid: 2bd35a01d2bce3f44838b6173ffb734d, type: 3}
+  m_PrefabInstance: {fileID: 986132647}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &644909055
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -209,25 +214,29 @@ PrefabInstance:
       value: HintBox
       objectReference: {fileID: 0}
     - target: {fileID: 5243051786389597873, guid: 923d684c794471340874a1e9bfeb0382, type: 3}
+      propertyPath: hintColliders.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5243051786389597873, guid: 923d684c794471340874a1e9bfeb0382, type: 3}
       propertyPath: hintColliders.Array.data[0]
       value: 
       objectReference: {fileID: 1297273011}
     - target: {fileID: 5243051786389597873, guid: 923d684c794471340874a1e9bfeb0382, type: 3}
       propertyPath: hintColliders.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1746370081}
     - target: {fileID: 5243051786389597873, guid: 923d684c794471340874a1e9bfeb0382, type: 3}
       propertyPath: hintColliders.Array.data[2]
       value: 
-      objectReference: {fileID: 1746370081}
+      objectReference: {fileID: 1685980667}
     - target: {fileID: 5243051786389597873, guid: 923d684c794471340874a1e9bfeb0382, type: 3}
       propertyPath: hintColliders.Array.data[3]
       value: 
-      objectReference: {fileID: 1685980667}
+      objectReference: {fileID: 1138573154}
     - target: {fileID: 5243051786389597873, guid: 923d684c794471340874a1e9bfeb0382, type: 3}
       propertyPath: hintColliders.Array.data[4]
       value: 
-      objectReference: {fileID: 1138573154}
+      objectReference: {fileID: 759451718}
     - target: {fileID: 5243051786389597873, guid: 923d684c794471340874a1e9bfeb0382, type: 3}
       propertyPath: hintColliders.Array.data[5]
       value: 
@@ -276,6 +285,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8812153030785665655, guid: 923d684c794471340874a1e9bfeb0382, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 31880590}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 923d684c794471340874a1e9bfeb0382, type: 3}
 --- !u!1001 &986132647
@@ -796,7 +809,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6598815579406187037, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
