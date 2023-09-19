@@ -81,7 +81,7 @@ public class PotionChecker : MonoBehaviour
     public void DialCheck(int step)
     {
         //Debug.Log($"step : {step}");
-        if (step == 12)
+        if (step == 6)
         {
             CheckPotion(m_LiquidData);
         }
