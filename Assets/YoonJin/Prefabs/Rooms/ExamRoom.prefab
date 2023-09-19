@@ -1423,6 +1423,7 @@ MonoBehaviour:
   openMaxAngle: 120
   lockMinAngle: 0
   lockMaxAngle: 1
+  closeAudio: {fileID: 0}
 --- !u!1 &5524821617577534571
 GameObject:
   m_ObjectHideFlags: 0
@@ -6564,7 +6565,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8504366197201035152}
   - {fileID: 8504366198243688826}
   m_Father: {fileID: 8504366198435681852}
   m_RootOrder: 0
@@ -7679,7 +7679,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2348024116228900116, guid: 5fc94a4f47d404e44afcac71422faecf, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2348024116228900116, guid: 5fc94a4f47d404e44afcac71422faecf, type: 3}
       propertyPath: m_AnchorMax.x

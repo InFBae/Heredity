@@ -21,19 +21,18 @@ namespace Basement.MorgueRoom
 
 				if (Physics.Raycast(transform.position, transform.right, out hit))
 				{
-					Debug.DrawRay(transform.position, transform.right * hit.distance, Color.red);
-
-					Debug.Log($"[Raycast] : {hit.collider.gameObject.name}");
+					//Debug.DrawRay(transform.position, transform.right * hit.distance, Color.red);
+					//Debug.Log($"[Raycast] : {hit.collider.gameObject.name}");
 
 					var hitObject = hit.collider.gameObject.GetComponent<IScatterable>();
 
 					if(hitObject != null)
 					{
-						Debug.Log($"[SprayHead] : {SprayCount}");
+						//Debug.Log($"[SprayHead] : {SprayCount}");
 
 						if(++SprayCount == sprayTime)
 						{
-							Debug.Log($"[SprayHead] : ScatteredView");
+							//Debug.Log($"[SprayHead] : ScatteredView");
 
 							SprayCount = 0;
 							hitObject.ScatteredView();

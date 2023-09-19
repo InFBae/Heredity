@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class LiquidBottle : RespawnableBottle
@@ -27,6 +28,10 @@ public class LiquidBottle : RespawnableBottle
     [SerializeField] XRExclusiveSocketInteractor soInteractor;
 
     [SerializeField] Color color;
+
+    public UnityEvent pourAudio;
+    public UnityEvent splashAudio;
+    public UnityEvent breakAudio;
 
     private void OnEnable()
     {
@@ -65,6 +70,7 @@ public class LiquidBottle : RespawnableBottle
         // 포션이 뚜껑이 없고, 액체 양이 0보다 크며, 위를 바라보고 있을 때
         if (Vector3.Dot(transform.up, Vector3.down) > 0 && fillAmount > 0 && isPlugIn == false)
         {
+            pourAudio?.Invoke();
             // 파티클 재생
             if (particleSystemLiquid.isStopped)
             {
@@ -104,6 +110,7 @@ public class LiquidBottle : RespawnableBottle
         {
             // 파티클 시스템 정지
             particleSystemLiquid.Stop();
+            
         }
         mesh.GetPropertyBlock(m_MaterialPropertyBlock);
         m_MaterialPropertyBlock.SetFloat("LiquidFill", fillAmount);
@@ -181,7 +188,7 @@ public class LiquidBottle : RespawnableBottle
             {
                 rb.AddExplosionForce(100.0f, SmashedObject.transform.position, 2.0f, 15.0F);
             }
-
+            breakAudio?.Invoke();
             Destroy(SmashedObject.gameObject, 4.0f);
             Destroy(this.gameObject, 4);
             GameManager.Resource.Instantiate<GameObject>(GameManager.Resource.Load<GameObject>($"Interactables/Potions/{prefabName}"), startingPosition, startingRotation);

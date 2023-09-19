@@ -6,6 +6,8 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class BasicDoor : Door
 {
     protected XRBaseInteractable[] handles;
+    [SerializeField] AudioSource closeAudio;
+
     protected override void Awake()
     {
         base.Awake();
@@ -30,6 +32,7 @@ public class BasicDoor : Door
         {
             //Debug.Log("Door Locked");
             Lock();
+            //closeAudio.Play();
         }
     }
 
