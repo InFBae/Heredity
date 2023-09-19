@@ -56,7 +56,7 @@ AudioSource:
   m_GameObject: {fileID: 7769914082682578367}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 938277152030092703, guid: 41e4fb2e099c7d54f83b841ae64b0c9d, type: 2}
   m_audioClip: {fileID: 8300000, guid: 5a5a94c4beaf91b47801043586bacda2, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.6
@@ -103,7 +103,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1261,14 +1261,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7769914083225214474}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8049933857594212799}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &7769914083225214472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1292,7 +1292,7 @@ AudioSource:
   m_GameObject: {fileID: 7769914083225214474}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 938277152030092703, guid: 41e4fb2e099c7d54f83b841ae64b0c9d, type: 2}
   m_audioClip: {fileID: 8300000, guid: 5a5a94c4beaf91b47801043586bacda2, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.6
@@ -1339,7 +1339,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -2327,14 +2327,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7769914083677780980}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8050111627883681585}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &7769914083677780978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2358,7 +2358,7 @@ AudioSource:
   m_GameObject: {fileID: 7769914083677780980}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 938277152030092703, guid: 41e4fb2e099c7d54f83b841ae64b0c9d, type: 2}
   m_audioClip: {fileID: 8300000, guid: 5a5a94c4beaf91b47801043586bacda2, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.6
@@ -2405,7 +2405,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -3734,14 +3734,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7769914084130786495}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7769914083854087599}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &7769914084130786493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3765,7 +3765,7 @@ AudioSource:
   m_GameObject: {fileID: 7769914084130786495}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 938277152030092703, guid: 41e4fb2e099c7d54f83b841ae64b0c9d, type: 2}
   m_audioClip: {fileID: 8300000, guid: 5a5a94c4beaf91b47801043586bacda2, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.6
@@ -3812,7 +3812,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -4798,7 +4798,7 @@ AudioSource:
   m_GameObject: {fileID: 8043494353461367729}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 938277152030092703, guid: 41e4fb2e099c7d54f83b841ae64b0c9d, type: 2}
   m_audioClip: {fileID: 8300000, guid: d64925f3415c89b4ca14c969cc3cd9be, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -4845,7 +4845,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
