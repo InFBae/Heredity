@@ -11,6 +11,7 @@ public class Slot : MonoBehaviour
     public GameObject ItemInSlot;
     public Image slotImage;
     Color originalColor;
+    Item item;
 
     private void Start()
     {
@@ -18,10 +19,19 @@ public class Slot : MonoBehaviour
         originalColor = Color.white;
     }
 
+    private void OnDisable()
+    {
+        if (item != null)
+        {
+            item.onSlot.RemoveListener(InsertItem);
+        }
+    }
+
     public void OnTriggerEnter(Collider other)
     {
         if (ItemInSlot == null && other.GetComponent<Item>())
         {
+            item = other.GetComponent<Item>();
             slotImage.color = Color.gray;
             other.gameObject.GetComponent<Item>().onSlot.AddListener(InsertItem);
         }
@@ -33,6 +43,7 @@ public class Slot : MonoBehaviour
         {
             ResetColor();
             other.gameObject.GetComponent<Item>().onSlot.RemoveListener(InsertItem);
+            item = null;
         }
     }
 

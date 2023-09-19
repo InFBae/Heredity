@@ -3,15 +3,25 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Runtime.CompilerServices;
+using Unity.XR.CoreUtils;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PotionChecker : MonoBehaviour
 {
+    [System.Serializable]
+    public class SuccessEvent : UnityEvent { }
+
     MaterialPropertyBlock m_MaterialPropertyBlock;
     MeshRenderer m_Renderer;
     LiquidData m_LiquidData;
 
     [SerializeField] private float fillAmount;
+    [SerializeField] GameObject endingPoint;
+    [SerializeField] XROrigin player;
+    [SerializeField] Animator animator;
+
+    public SuccessEvent successEvent;
 
     private bool isFilled = false;
 
@@ -67,8 +77,9 @@ public class PotionChecker : MonoBehaviour
         if (fillAmount > 0.9f && liquidData.liquidName == "Success Liquid")
         {
             // Success
-            Debug.Log("Success"); 
-            
+            Debug.Log("Success");
+            successEvent.Invoke();
+            StartCoroutine(GameEndRoutine());
         }
         else
         {
@@ -81,7 +92,7 @@ public class PotionChecker : MonoBehaviour
     public void DialCheck(int step)
     {
         //Debug.Log($"step : {step}");
-        if (step == 6)
+        if (step == 12)
         {
             CheckPotion(m_LiquidData);
         }
@@ -99,5 +110,13 @@ public class PotionChecker : MonoBehaviour
                 yield break;
             }
         }
+    }
+
+    IEnumerator GameEndRoutine()
+    {
+        yield return new WaitForSeconds(3f);
+        player.transform.position = endingPoint.transform.position;
+        player.transform.rotation = endingPoint.transform.rotation;
+        animator.SetTrigger("FadeIn");
     }
 }
