@@ -35,9 +35,10 @@ public class Hint : Item, IUseable
 
     private void OnTriggerEnter(Collider other)
     {
-        hintSound?.Invoke();
+        
         if (other.gameObject.layer == hintColliders[0].layer)
         {
+            hintSound?.Invoke();
             if (other.gameObject == hintColliders[0])
             {
                 triggerNum = 1;
