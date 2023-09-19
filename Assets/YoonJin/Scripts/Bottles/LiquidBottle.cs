@@ -92,6 +92,13 @@ public class LiquidBottle : RespawnableBottle
                     bottle.FillBottle(0.1f, mesh, m_MaterialPropertyBlock, liquidData);
                 }
 
+                PotionChecker potionChecker = hit.collider.GetComponent<PotionChecker>();
+
+                if (potionChecker != null)
+                {
+                    potionChecker.FillFunnel(0.1f, mesh, m_MaterialPropertyBlock, liquidData);
+                }
+
                 // 들어가야 하는 병에 들어갔을 때
                 // LiquidReceiver receiver = hit.collider.GetComponent<LiquidReceiver>();
                 
@@ -184,7 +191,12 @@ public class LiquidBottle : RespawnableBottle
             breakAudio?.Invoke();
             Destroy(SmashedObject.gameObject, 4.0f);
             Destroy(this.gameObject, 4);
-            GameManager.Resource.Instantiate<GameObject>(GameManager.Resource.Load<GameObject>($"Interactables/Potions/{prefabName}"), startingPosition, startingRotation);            
+            GameManager.Resource.Instantiate<GameObject>(GameManager.Resource.Load<GameObject>($"Interactables/Potions/{prefabName}"), startingPosition, startingRotation);
+            Collider[] colliders = GetComponentsInChildren<Collider>();
+            foreach(Collider collider in colliders)
+            {
+                collider.enabled = false;
+            }
         }
     }
 }
