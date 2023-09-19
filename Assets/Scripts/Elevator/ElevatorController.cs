@@ -22,8 +22,7 @@ namespace Elevator
 		{
 			InitComponents();
 
-			//StopElevator();
-			StartElevator();
+			StopElevator();
         }
 
 		private void InitComponents()

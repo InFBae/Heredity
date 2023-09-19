@@ -33,6 +33,8 @@ public class LiquidBottle : RespawnableBottle
     public UnityEvent splashAudio;
     public UnityEvent breakAudio;
 
+    [SerializeField] AudioSource pourSound;
+
     private void OnEnable()
     {
         particleSystemLiquid.Stop();    // 파티클 재생 중지
@@ -70,7 +72,8 @@ public class LiquidBottle : RespawnableBottle
         // 포션이 뚜껑이 없고, 액체 양이 0보다 크며, 위를 바라보고 있을 때
         if (Vector3.Dot(transform.up, Vector3.down) > 0 && fillAmount > 0 && isPlugIn == false)
         {
-            pourAudio?.Invoke();
+            if (!pourSound.isPlaying)
+                pourSound.Play();
             // 파티클 재생
             if (particleSystemLiquid.isStopped)
             {
@@ -110,6 +113,7 @@ public class LiquidBottle : RespawnableBottle
         {
             // 파티클 시스템 정지
             particleSystemLiquid.Stop();
+            pourSound.Stop();
             
         }
         mesh.GetPropertyBlock(m_MaterialPropertyBlock);
@@ -189,14 +193,18 @@ public class LiquidBottle : RespawnableBottle
                 rb.AddExplosionForce(100.0f, SmashedObject.transform.position, 2.0f, 15.0F);
             }
             breakAudio?.Invoke();
+
             Destroy(SmashedObject.gameObject, 4.0f);
             Destroy(this.gameObject, 4);
-            GameManager.Resource.Instantiate<GameObject>(GameManager.Resource.Load<GameObject>($"Interactables/Potions/{prefabName}"), startingPosition, startingRotation);
-            Collider[] colliders = GetComponentsInChildren<Collider>();
-            foreach(Collider collider in colliders)
-            {
-                collider.enabled = false;
-            }
+            StartCoroutine(RespawnRoutine(GameManager.Resource.Load<GameObject>($"Interactables/Potions/{prefabName}")));
+
+            isBreakable = false;
+        }
+
+        IEnumerator RespawnRoutine(GameObject prefab)
+        {
+            yield return new WaitForSeconds(2f);
+            GameManager.Resource.Instantiate<GameObject>(prefab, startingPosition, startingRotation);
         }
     }
 }

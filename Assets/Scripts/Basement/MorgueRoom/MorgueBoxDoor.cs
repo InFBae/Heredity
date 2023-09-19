@@ -31,8 +31,12 @@ namespace Basement.MorgueRoom
 
 		private void SetMovedDoor(bool isOpened)
 		{
-			if(handle.IsFixedDoorRotation())
-				transform.localRotation = Quaternion.Euler(0, -100, 0);
+			//if(handle.IsFixedDoorRotation())
+			//{
+			//	transform.localRotation = Quaternion.Euler(0, -100, 0);
+			//	hinge.breakForce = 0;
+			//}
+				
 
 			IsOpened = isOpened;
 			OnChangedDoorState?.Invoke();
