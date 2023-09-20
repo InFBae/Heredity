@@ -44,4 +44,14 @@ public class SettingUI : MonoBehaviour
         prevBgmValue = bgmSlider.value;
         bgmSlider.value = -80;
     }
+
+    public void SetBGMVolume(float volume)
+    {
+        GameManager.Sound.SetAudioVolume("BGM", volume);
+    }
+
+    public void SetSFXVolume(float volume)
+    {
+        GameManager.Sound.SetAudioVolume("SFX", volume);
+    }
 }

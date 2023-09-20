@@ -22,10 +22,12 @@ public class PotionChecker : MonoBehaviour
     [SerializeField] Animator animator;
 
     [SerializeField] private BGMController bgmController;
+    [SerializeField] Canvas endingUI;
 
     public SuccessEvent successEvent;
 
     private bool isFilled = false;
+    int stepChanged = 0;
 
 
     private void Awake()
@@ -76,7 +78,7 @@ public class PotionChecker : MonoBehaviour
 
     public void CheckPotion(LiquidData liquidData)
     {
-        if (fillAmount > 0.9f && liquidData.liquidName == "Success Liquid")
+        if (fillAmount > 0.8f && liquidData.liquidName == "Success Liquid")
         {
             // Success
             Debug.Log("Success");
@@ -95,8 +97,10 @@ public class PotionChecker : MonoBehaviour
     public void DialCheck(int step)
     {
         //Debug.Log($"step : {step}");
-        if (step == 12)
+        stepChanged++;
+        if (stepChanged > 5)
         {
+            stepChanged = 0;
             CheckPotion(m_LiquidData);
         }
     }
@@ -121,5 +125,7 @@ public class PotionChecker : MonoBehaviour
         player.transform.position = endingPoint.transform.position;
         player.transform.rotation = endingPoint.transform.rotation;
         animator.SetTrigger("FadeIn");
+        yield return new WaitForSeconds(3f);
+        endingUI.gameObject.SetActive(true);
     }
 }
