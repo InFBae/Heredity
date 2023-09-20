@@ -44,6 +44,7 @@ namespace Elevator
 		private void SelectedFloor(FloorBtn clickedBtn)
 		{
 			currentBtn = clickedBtn;
+			currentBtn.SetActiveBtn(false);
 
 			mover.OnEndMovedElevator += ArrivalElevator;
 			mover.OnStartMovedElevator?.Invoke(moveDirection, clickedBtn.FloorNum);
@@ -52,6 +53,7 @@ namespace Elevator
 		private void ArrivalElevator(int currentFloor)
 		{
 			currentBtn.SetInitBtn();
+			currentBtn.SetActiveBtn(true);
 			currentBtn = null;
 
 			mover.OnEndMovedElevator -= ArrivalElevator;

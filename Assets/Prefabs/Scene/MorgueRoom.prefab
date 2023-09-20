@@ -21788,6 +21788,7 @@ GameObject:
   - component: {fileID: 7612990762836626611}
   - component: {fileID: 7612990762836626606}
   - component: {fileID: 7612990762836626605}
+  - component: {fileID: 469781267408703342}
   m_Layer: 0
   m_Name: DoorD_Left
   m_TagString: Untagged
@@ -21860,6 +21861,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &469781267408703342
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7612990762836626610}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.94861424, y: 2.098418, z: 0.15871105}
+  m_Center: {x: 0.47278762, y: -0.90949416, z: -0.028385507}
 --- !u!1 &7612990762886390044
 GameObject:
   m_ObjectHideFlags: 0

@@ -25,7 +25,7 @@ namespace Basement.MorgueRoom
 
         public void SetDisplayText(int inputData)
         {
-			Debug.Log($"SetDisplayText : {inputData}");
+			//Debug.Log($"SetDisplayText : {inputData}");
 
 			inputDatas.Add(inputData);
             ShowDisplay();
@@ -33,7 +33,7 @@ namespace Basement.MorgueRoom
 
         public void CancelInputData()
         {
-            Debug.Log("CancelInputData");
+            //Debug.Log("CancelInputData");
 
             if(inputDatas.Count > 0)
                 inputDatas.RemoveAt(inputDatas.Count-1);
@@ -43,7 +43,7 @@ namespace Basement.MorgueRoom
 
         private void ShowDisplay()
         {
-            Debug.Log(string.Join(" ", inputDatas));
+            //Debug.Log(string.Join(" ", inputDatas));
 
             if(inputDatas.Count > 4)
                 txtDisplayData.text = string.Join(" ", inputDatas.TakeLast(4));

@@ -40,18 +40,30 @@ namespace Basement.MorgueRoom
 
         private AudioSource btnAudio;
 
-		private bool isEnableBtn = true;
+        private bool isEnableBtn;
 
         private void Awake()
         {
-            foreach (var btn in keypadBtns)
-            {
-                btn.OnBtnClick += ClikedKeypadNum;
-            }
 			btnAudio = gameObject.GetComponent<AudioSource>();
+
+			foreach (var btn in keypadBtns)
+				btn.OnBtnClick += ClikedKeypadNum;
+
+			StopKeypad();
 		}
 
-        private void ClikedKeypadNum(KeypadBtn clickedBtn)
+        public void StartKeypad()
+        {
+            isEnableBtn = true;
+		}
+
+        public void StopKeypad()
+        {
+            isEnableBtn = false;
+		}
+
+
+		private void ClikedKeypadNum(KeypadBtn clickedBtn)
         {
             if (isEnableBtn == false)
                 return;
