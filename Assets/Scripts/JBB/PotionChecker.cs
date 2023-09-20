@@ -21,6 +21,8 @@ public class PotionChecker : MonoBehaviour
     [SerializeField] XROrigin player;
     [SerializeField] Animator animator;
 
+    [SerializeField] private BGMController bgmController;
+
     public SuccessEvent successEvent;
 
     private bool isFilled = false;
@@ -80,6 +82,7 @@ public class PotionChecker : MonoBehaviour
             Debug.Log("Success");
             successEvent.Invoke();
             StartCoroutine(GameEndRoutine());
+            bgmController.ChangeBGM("BGM/Hopeful/endBGM");
         }
         else
         {

@@ -5287,7 +5287,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: daace3f9d5a4b82449e68870095108da, type: 2}
+  - {fileID: 2100000, guid: 9156b26c986372a4482d8b570a9033fc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5659,7 +5659,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cddb575c80629af428d847949713f31b, type: 2}
+  - {fileID: 2100000, guid: 64ca449b1dd4fd543a2f310867455727, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10690,7 +10690,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: daace3f9d5a4b82449e68870095108da, type: 2}
+  - {fileID: 2100000, guid: 9156b26c986372a4482d8b570a9033fc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12393,6 +12393,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipes:
   - {fileID: 11400000, guid: a1c53de8e5c32034b8ee8ac78b36a885, type: 2}
+  material: {fileID: 0}
 --- !u!65 &260971903
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ using UnityEngine;
 public class BGMController : MonoBehaviour
 {
     [SerializeField] string startBGM;
+
     private void Start()
     {
         GameManager.Sound.Play($"{startBGM}", SoundManager.Sound.BGM);
