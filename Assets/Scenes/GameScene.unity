@@ -773,7 +773,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8021881248467922802, guid: 753dedb8839ca714c8112594bb42750b, type: 3}
   m_PrefabInstance: {fileID: 644909055}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &644909059
+--- !u!54 &644909065 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 5525008855649320162, guid: 753dedb8839ca714c8112594bb42750b, type: 3}
+  m_PrefabInstance: {fileID: 644909055}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &644909066
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -782,13 +787,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 644909058}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
+  m_Script: {fileID: 11500000, guid: 07f6440ff7c83ad469d777a3fde8e3fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 1240164757}
   m_Colliders:
-  - {fileID: 644909056}
   - {fileID: 644909057}
+  - {fileID: 644909056}
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -910,11 +915,6 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
---- !u!54 &644909065 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 5525008855649320162, guid: 753dedb8839ca714c8112594bb42750b, type: 3}
-  m_PrefabInstance: {fileID: 644909055}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &759451718 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8794631699394230062, guid: 753dedb8839ca714c8112594bb42750b, type: 3}
